@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132832">
+  <meta name="description" content="Crayon Kite makes story-filled coloring books for little artists and the grown-ups who read with them. Meet The Chirps and explore their first budgie adventure.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Crayon Kite — Coloring Books &amp; Little Adventures</title>
+  <style>
+    :root { color-scheme: dark; --bg:#132832; --bg2:#1d3b42; --panel:#234a4c; --paper:#fff8e9; --muted:#c5d9d1; --green:#a8e1c0; --yellow:#ffd064; --pink:#ff9e87; --blue:#94d8e6; --ink:#14383b; --line:rgba(245,249,234,.16); --shadow:0 22px 55px rgba(4,20,25,.28); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:88px; }
+    body { margin:0; background:var(--bg); color:var(--paper); font:16px/1.55 "Trebuchet MS","Avenir Next",system-ui,sans-serif; }
+    a { color:inherit; }
+    :focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
+    .skip { position:absolute; z-index:20; top:8px; left:8px; transform:translateY(-150%); padding:10px 14px; border-radius:10px; background:var(--paper); color:var(--ink); }
+    .skip:focus { transform:translateY(0); }
+    .shell { width:min(1120px,calc(100% - 40px)); margin-inline:auto; }
+    .topbar { position:sticky; z-index:10; top:0; border-bottom:1px solid var(--line); background:rgba(19,40,50,.94); backdrop-filter:blur(14px); }
+    .nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:inline-flex; align-items:center; gap:11px; text-decoration:none; font-size:1.1rem; font-weight:950; letter-spacing:-.04em; }
+    .mark { width:42px; height:42px; display:grid; place-items:center; border-radius:15px 15px 15px 5px; transform:rotate(-5deg); background:var(--yellow); color:var(--ink); font-size:1.4rem; }
+    .links { display:flex; align-items:center; gap:clamp(16px,3vw,32px); }
+    .links a { color:var(--muted); font-size:.92rem; font-weight:800; text-decoration:none; }
+    .links a:hover { color:var(--paper); }
+    .button { display:inline-flex; min-height:48px; justify-content:center; align-items:center; gap:9px; padding:0 19px; border:0; border-radius:999px; background:var(--yellow); color:var(--ink); cursor:pointer; font:inherit; font-weight:950; text-decoration:none; transition:transform .18s ease,filter .18s ease; }
+    .button:hover { transform:translateY(-2px); filter:brightness(1.05); }
+    .button.outline { border:1px solid rgba(255,248,233,.3); background:transparent; color:var(--paper); }
+    .menu-toggle { display:none; width:46px; height:46px; border:1px solid var(--line); border-radius:15px; background:var(--bg2); color:var(--paper); cursor:pointer; font-size:1.3rem; }
+    .hero { position:relative; overflow:hidden; padding:clamp(58px,8vw,98px) 0 74px; }
+    .hero:before { content:""; position:absolute; top:-245px; right:-90px; width:490px; height:490px; border-radius:50%; background:rgba(148,216,230,.08); }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr .92fr; align-items:center; gap:clamp(36px,7vw,85px); }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; margin:0 0 17px; color:var(--green); font-size:.76rem; font-weight:950; letter-spacing:.14em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:670px; margin-bottom:21px; font-size:clamp(3.35rem,7.5vw,6rem); line-height:.95; letter-spacing:-.07em; }
+    h1 em { color:var(--yellow); font-style:normal; }
+    .hero-copy { max-width:510px; margin-bottom:26px; color:var(--muted); font-size:clamp(1.08rem,2vw,1.26rem); }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .subnote { margin:20px 0 0; color:#b6ccc5; font-size:.9rem; }
+    .art-card { position:relative; padding:17px; border-radius:34px; background:#fbf5e9; box-shadow:var(--shadow); transform:rotate(1.5deg); }
+    .art-card img { display:block; width:100%; height:auto; border-radius:23px; mix-blend-mode:multiply; }
+    .sticker { position:absolute; bottom:23px; left:-18px; padding:10px 15px; border:3px solid var(--bg); border-radius:15px; transform:rotate(-5deg); background:var(--pink); color:var(--ink); font-size:.83rem; font-weight:950; }
+    .spark { position:absolute; top:-18px; right:22px; width:60px; height:60px; display:grid; place-items:center; border-radius:50%; background:var(--yellow); color:var(--ink); font-size:1.8rem; }
+    .section { padding:clamp(60px,8vw,90px) 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
+    .section-head h2 { max-width:680px; margin:0; font-size:clamp(2.1rem,4.5vw,3.45rem); line-height:1.02; letter-spacing:-.055em; }
+    .section-head p { max-width:365px; margin:0; color:var(--muted); }
+    .shelf { display:grid; grid-template-columns:1.17fr 1fr 1fr; gap:17px; }
+    .book { min-height:365px; display:flex; flex-direction:column; justify-content:space-between; padding:23px; overflow:hidden; border:1px solid var(--line); border-radius:27px; background:var(--bg2); }
+    .book:first-child { background:linear-gradient(145deg,#41645b,#23484b 80%); }
+    .book:nth-child(3) { background:linear-gradient(145deg,#4a5367,#293b4c 80%); }
+    .book-head { display:flex; justify-content:space-between; align-items:center; gap:9px; }
+    .tag { display:inline-flex; padding:6px 10px; border-radius:99px; background:rgba(255,248,233,.12); font-size:.74rem; font-weight:950; }
+    .number { color:rgba(255,248,233,.6); font-size:.8rem; font-weight:950; }
+    .book-visual { height:126px; display:grid; place-items:center; margin:12px 0; border-radius:19px; background:rgba(255,248,233,.08); font-size:4.2rem; }
+    .book h3 { max-width:290px; margin:0 0 8px; font-size:1.34rem; line-height:1.12; letter-spacing:-.035em; }
+    .book p { margin:0; color:var(--muted); font-size:.94rem; }
+    .text-link { display:inline-flex; min-height:44px; align-items:center; gap:8px; margin-top:15px; color:var(--yellow); font-weight:950; text-decoration:none; }
+    .text-link:hover { text-decoration:underline; }
+    .how { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .how article { padding:22px; border:1px solid var(--line); border-radius:22px; background:var(--bg2); }
+    .how .icon { display:grid; width:49px; height:49px; place-items:center; margin-bottom:21px; border-radius:17px 17px 17px 6px; background:var(--green); color:var(--ink); font-size:1.45rem; }
+    .how article:nth-child(2) .icon { background:var(--pink); }
+    .how article:nth-child(3) .icon { background:var(--blue); }
+    .how h3 { margin:0 0 7px; font-size:1.1rem; }
+    .how p { margin:0; color:var(--muted); font-size:.93rem; }
+    .feature { display:grid; grid-template-columns:1fr auto; gap:30px; align-items:center; padding:clamp(25px,5vw,48px); border-radius:32px; background:var(--yellow); color:var(--ink); }
+    .feature .eyebrow { color:#435b51; }
+    .feature h2 { max-width:650px; margin:0 0 11px; font-size:clamp(2.2rem,4.7vw,3.5rem); line-height:.99; letter-spacing:-.06em; }
+    .feature p { max-width:650px; margin:0; color:#35534c; }
+    .feature .button { flex-shrink:0; background:var(--bg); color:var(--paper); }
+    .grownups { display:grid; grid-template-columns:.8fr 1.2fr; gap:34px; padding:30px; border:1px solid var(--line); border-radius:27px; background:var(--bg2); }
+    .grownups h2 { margin:0 0 10px; font-size:clamp(1.8rem,3vw,2.5rem); line-height:1; letter-spacing:-.05em; }
+    .grownups p { margin:0; color:var(--muted); }
+    .points { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin:0; padding:0; list-style:none; }
+    .points li { display:flex; gap:9px; align-items:start; font-size:.93rem; }
+    .check { color:var(--green); font-weight:950; }
+    footer { padding:33px 0 40px; border-top:1px solid var(--line); color:var(--muted); }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .footer-inner p { margin:0; font-size:.88rem; }
+    @media (max-width:850px) { .hero-grid{grid-template-columns:1fr 1fr;gap:32px}.shelf{grid-template-columns:1fr 1fr}.book:last-child{display:none}.how{grid-template-columns:1fr 1fr}.grownups{grid-template-columns:1fr;gap:14px} }
+    @media (max-width:620px) {
+      .shell{width:min(100% - 28px,500px)} .nav{min-height:68px}.menu-toggle{display:block}.links{display:none;position:absolute;left:0;right:0;top:68px;padding:12px 20px 20px;border-bottom:1px solid var(--line);background:var(--bg);flex-direction:column;align-items:stretch;gap:0}.links.open{display:flex}.links a{padding:13px 3px}.nav>.button{display:none}
+      .hero{padding:49px 0 57px}.hero-grid{grid-template-columns:1fr;gap:34px}h1{font-size:clamp(3.3rem,17vw,5.1rem)}.hero-copy{font-size:1.06rem}.art-card{width:calc(100% - 12px);margin-inline:auto;padding:10px;border-radius:24px}.art-card img{border-radius:17px}.sticker{left:-7px;bottom:10px}.spark{width:49px;height:49px;font-size:1.45rem}
+      .section{padding:57px 0}.section-head{align-items:start;flex-direction:column;gap:10px}.shelf,.how{grid-template-columns:1fr}.book{min-height:320px}.book:last-child{display:flex}.book-visual{height:100px}.feature{grid-template-columns:1fr;gap:20px;border-radius:26px}.feature .button{width:fit-content}.grownups{padding:23px}.points{grid-template-columns:1fr;gap:10px}.footer-inner{align-items:start;flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important} }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the books</a>
+  <header class="topbar"><nav class="nav shell" aria-label="Main navigation">
+    <a class="brand" href="#top" aria-label="Crayon Kite home"><span class="mark" aria-hidden="true">✳</span><span>Crayon Kite</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu">☰</button>
+    <div class="links" id="site-links"><a href="#books">Our books</a><a href="#why">Made for little artists</a><a href="#grownups">For grown-ups</a><a href="budgie-adventures/">Budgie Adventures</a></div>
+    <a class="button" href="#books">Explore the shelf <span aria-hidden="true">✦</span></a>
+  </nav></header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title"><div class="shell hero-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✦</span> Storybooks with room to color</p>
+        <h1 id="hero-title">Big ideas fit <em>inside</em> the lines.</h1>
+        <p class="hero-copy">Crayon Kite makes story-filled coloring books for little artists. Start with a cozy tale, meet a new friend, then make the pictures your own.</p>
+        <div class="actions"><a class="button" href="#books">Browse the book shelf <span aria-hidden="true">✦</span></a><a class="button outline" href="budgie-adventures/">Meet The Chirps <span aria-hidden="true">✦</span></a></div>
+        <p class="subnote">Gentle adventures for children and the grown-ups reading along.</p>
+      </div>
+      <div class="art-card"><span class="spark" aria-hidden="true">✦</span><img src="assets/chirps-family.jpg" alt="The Chirps: Daisy, Chip, Caty, and Bella, the budgie friends in Crayon Kite's first story collection." width="1774" height="1013"><span class="sticker">A new little world to color</span></div>
+    </div></section>
+
+    <section class="section" id="books" aria-labelledby="books-title"><div class="shell">
+      <div class="section-head"><div><p class="eyebrow"><span aria-hidden="true">▱</span> From the Crayon Kite bookshelf</p><h2 id="books-title">Stories to read. Pictures to make your own.</h2></div><p>Meet the first collection taking shape at Crayon Kite: The Amazing Budgie Adventures of The Chirps.</p></div>
+      <div class="shelf">
+        <article class="book"><div class="book-head"><span class="tag">The first story</span><span class="number">01</span></div><div class="book-visual" aria-hidden="true">🌳 ✨ 🐦</div><div><h3>The Magical Forest &amp; the Feather Map</h3><p>A curious picture takes Daisy, Chip, and Caty beyond the hills, where a tiny lost bird needs help finding home.</p><a class="text-link" href="budgie-adventures/">Explore the story world <span aria-hidden="true">✦</span></a></div></article>
+        <article class="book"><div class="book-head"><span class="tag">A creative break</span><span class="number">COLOR</span></div><div class="book-visual" aria-hidden="true">✎ 🌼 🖍</div><div><h3>Coloring pages for curious hands</h3><p>Give the Chirps a colorful home. Try the free birdhouse page with crayons, markers, or colored pencils.</p><a class="text-link" href="budgie-adventures/#color">Print a coloring page <span aria-hidden="true">✦</span></a></div></article>
+        <article class="book"><div class="book-head"><span class="tag">Follow the map</span><span class="number">10 TALES</span></div><div class="book-visual" aria-hidden="true">🗺️ 🪶 🎵</div><div><h3>Ten adventures, one Sky Song</h3><p>Each gentle journey solves a small problem and adds a new clue to the Chirps' welcoming song.</p><a class="text-link" href="budgie-adventures/#stories">See the adventure map <span aria-hidden="true">✦</span></a></div></article>
+      </div>
+      <p class="subnote">Book titles and the companion series are in development. Release and purchase details will be added when available.</p>
+    </div></section>
+
+    <section class="section" id="why" aria-labelledby="why-title"><div class="shell">
+      <div class="section-head"><div><p class="eyebrow"><span aria-hidden="true">☼</span> A little reading ritual</p><h2 id="why-title">Let their imagination take the lead.</h2></div><p>Made for shared story time, low-pressure creativity, and the wonderful things kids add to the page.</p></div>
+      <div class="how">
+        <article><span class="icon" aria-hidden="true">📖</span><h3>Read together</h3><p>Short, reassuring adventures invite questions and make space for little voices.</p></article>
+        <article><span class="icon" aria-hidden="true">🖍</span><h3>Color your way</h3><p>Open pictures and hands-on coloring turn a story into something all their own.</p></article>
+        <article><span class="icon" aria-hidden="true">🪶</span><h3>Find the next clue</h3><p>Familiar friends and gentle mysteries make it fun to come back for the next tale.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section" aria-labelledby="chirps-feature-title"><div class="shell feature"><div><p class="eyebrow"><span aria-hidden="true">♡</span> Meet The Chirps</p><h2 id="chirps-feature-title">One budgie family. A sky full of stories.</h2><p>Join Daisy, Chip, Caty, and Bella as they follow a feather map through forests, rivers, meadows, and new friendships.</p></div><a class="button" href="budgie-adventures/">Fly into their world <span aria-hidden="true">✦</span></a></div></section>
+
+    <section class="section" id="grownups" aria-labelledby="grownups-title"><div class="shell grownups">
+      <div><p class="eyebrow"><span aria-hidden="true">☼</span> For grown-ups</p><h2 id="grownups-title">A screen page that leads to paper.</h2><p>The Chirps page has a free activity children can print with a grown-up. No sign-up is needed to explore this site.</p></div>
+      <ul class="points"><li><span class="check" aria-hidden="true">✓</span><span>No child profiles, comments, or message boards.</span></li><li><span class="check" aria-hidden="true">✓</span><span>No child data-entry forms or user uploads.</span></li><li><span class="check" aria-hidden="true">✓</span><span>Printables open from the activity page.</span></li><li><span class="check" aria-hidden="true">✓</span><span>Stories are designed for ages 4–8 and shared reading.</span></li></ul>
+    </div></section>
+  </main>
+  <footer><div class="shell footer-inner"><a class="brand" href="#top"><span class="mark" aria-hidden="true">✳</span><span>Crayon Kite</span></a><p>Colorful stories for curious little minds. <span aria-hidden="true" style="color:var(--yellow)">♥</span></p><p><a href="budgie-adventures/">Budgie Adventures with The Chirps</a></p></div></footer>
+  <script>
+    const button = document.querySelector('.menu-toggle');
+    const links = document.querySelector('#site-links');
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      button.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      links.classList.toggle('open', !open);
+    });
+    links.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Open menu');
+        links.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

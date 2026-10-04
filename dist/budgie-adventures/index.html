@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102e35">
+  <meta name="description" content="Meet the Chirps, read a cozy budgie adventure, and print a coloring page. Made for little explorers and their grown-ups.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Budgie Adventures with The Chirps</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #102e35;
+      --night-2: #183d43;
+      --panel: #20494c;
+      --panel-light: #285557;
+      --cream: #fff8e8;
+      --muted: #c4d8cd;
+      --mint: #a9e3c5;
+      --yellow: #ffcf61;
+      --coral: #ff987e;
+      --sky: #92d8ea;
+      --ink: #173d3d;
+      --line: rgba(229, 245, 230, .15);
+      --radius: 28px;
+      --shadow: 0 18px 45px rgba(4, 19, 22, .2);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0; background: var(--night); color: var(--cream);
+      font-family: "Trebuchet MS", "Avenir Next", system-ui, sans-serif;
+      font-size: 16px; line-height: 1.55;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+    .skip-link { position: absolute; z-index: 20; top: 8px; left: 8px; padding: 10px 14px; background: var(--cream); color: var(--ink); border-radius: 10px; transform: translateY(-150%); }
+    .skip-link:focus { transform: translateY(0); }
+    .shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { position: sticky; z-index: 10; top: 0; background: rgba(16, 46, 53, .93); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 900; letter-spacing: -.03em; font-size: 1.08rem; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 15px 15px 15px 5px; background: var(--yellow); color: var(--ink); font-size: 1.45rem; transform: rotate(-5deg); }
+    .links { display: flex; align-items: center; gap: clamp(14px, 3vw, 34px); }
+    .links a { text-decoration: none; font-size: .92rem; color: var(--muted); font-weight: 700; }
+    .links a:hover { color: var(--cream); }
+    .nav-cta, .button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 48px; padding: 0 19px; border: 0; border-radius: 999px; background: var(--yellow); color: var(--ink); font-weight: 900; text-decoration: none; cursor: pointer; transition: transform .18s ease, filter .18s ease; }
+    .nav-cta:hover, .button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .menu-toggle { display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 15px; color: var(--cream); background: var(--panel); cursor: pointer; font-size: 1.3rem; }
+    .hero { position: relative; overflow: hidden; padding: clamp(54px, 8vw, 100px) 0 72px; }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 420px; height: 420px; right: -70px; top: -210px; background: rgba(146, 216, 234, .09); }
+    .hero::after { width: 280px; height: 280px; left: -130px; bottom: -120px; background: rgba(169, 227, 197, .08); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: clamp(30px, 6vw, 72px); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; color: var(--mint); font-size: .76rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 630px; margin-bottom: 20px; font-size: clamp(3rem, 7vw, 5.65rem); line-height: .99; letter-spacing: -.065em; }
+    h1 em { color: var(--yellow); font-style: normal; }
+    .hero-copy { max-width: 500px; margin-bottom: 27px; color: var(--muted); font-size: clamp(1.06rem, 2vw, 1.24rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .button.secondary { border: 1px solid rgba(236, 246, 235, .24); color: var(--cream); background: transparent; }
+    .hero-note { display: flex; align-items: center; gap: 9px; margin: 23px 0 0; color: #b1c9c1; font-size: .88rem; }
+    .hero-note span:first-child { color: var(--yellow); font-size: 1.1rem; }
+    .art-stage { position: relative; padding: 18px; border-radius: 36px; background: #f9f4e9; box-shadow: var(--shadow); transform: rotate(1deg); }
+    .art-stage img { width: 100%; height: auto; display: block; border-radius: 24px; mix-blend-mode: multiply; }
+    .art-tag { position: absolute; left: -24px; bottom: 24px; padding: 11px 16px; border: 3px solid var(--night); border-radius: 16px; background: var(--coral); color: var(--ink); font-size: .85rem; font-weight: 900; transform: rotate(-5deg); }
+    .sun-doodle { position: absolute; top: -19px; right: 23px; display: grid; width: 63px; height: 63px; place-items: center; border-radius: 50%; background: var(--yellow); color: var(--ink); font-size: 2rem; }
+    .section { padding: clamp(60px, 8vw, 92px) 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-head h2 { max-width: 650px; margin: 0; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -.05em; }
+    .section-head p { max-width: 360px; margin: 0; color: var(--muted); }
+    .shelf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .story-card { min-height: 332px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; position: relative; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .story-card.featured { background: linear-gradient(145deg, #3a6360, #23494d 75%); }
+    .story-card.next { background: linear-gradient(145deg, #47575c, #253f46 80%); }
+    .story-card.song { background: linear-gradient(145deg, #554d5f, #333b4c 80%); }
+    .story-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .pill { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: rgba(255, 248, 232, .12); color: var(--cream); font-size: .74rem; font-weight: 900; }
+    .number { color: rgba(255, 248, 232, .56); font-weight: 900; font-size: .85rem; }
+    .cover { display: grid; place-items: center; height: 132px; margin: 17px 0 12px; font-size: 4.4rem; }
+    .cover .moon { font-size: 4.4rem; }
+    .story-card h3 { max-width: 260px; margin: 0 0 7px; font-size: 1.35rem; line-height: 1.13; letter-spacing: -.03em; }
+    .story-card p { max-width: 320px; margin: 0; color: var(--muted); font-size: .94rem; }
+    .small-link { display: inline-flex; align-items: center; gap: 8px; width: fit-content; margin-top: 17px; color: var(--yellow); font-weight: 900; text-decoration: none; }
+    .small-link:hover { text-decoration: underline; }
+    .story-sample { margin-top: 15px; color: var(--cream); }
+    .story-sample summary { width: fit-content; min-height: 44px; display: flex; align-items: center; gap: 8px; color: var(--yellow); font-weight: 900; cursor: pointer; }
+    .sample-copy { padding: 12px 14px; border-left: 2px solid var(--yellow); color: var(--cream); background: rgba(11, 35, 39, .25); border-radius: 0 12px 12px 0; }
+    .sample-copy p { margin: 0 0 10px; color: var(--cream); }
+    .sample-copy p:last-child { margin-bottom: 0; }
+    .activity-wrap { display: grid; grid-template-columns: .94fr 1.06fr; gap: 35px; align-items: center; padding: clamp(24px, 5vw, 48px); border-radius: 36px; background: #dbb769; color: var(--ink); }
+    .activity-wrap .eyebrow { color: #47615a; }
+    .activity-wrap h2 { max-width: 420px; margin: 0 0 14px; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.06em; }
+    .activity-wrap p { max-width: 430px; color: #365551; }
+    .activity-wrap .button { background: var(--night); color: var(--cream); }
+    .print-preview { display: grid; place-items: center; min-height: 320px; padding: 19px; border-radius: 22px; background: #fffdf4; transform: rotate(1deg); box-shadow: 0 12px 28px rgba(24, 57, 51, .18); }
+    .print-preview svg { display: block; width: min(100%, 460px); max-height: 310px; }
+    .cast { display: grid; grid-template-columns: 1.1fr repeat(4, 1fr); align-items: stretch; gap: 13px; }
+    .cast-intro { display: flex; flex-direction: column; justify-content: center; padding-right: 12px; }
+    .cast-intro h2 { margin: 0 0 10px; font-size: clamp(2rem, 3.3vw, 2.8rem); line-height: 1; letter-spacing: -.05em; }
+    .cast-intro p { margin: 0; color: var(--muted); }
+    .character { min-height: 194px; display: flex; flex-direction: column; justify-content: space-between; padding: 17px 16px; border: 1px solid var(--line); border-radius: 21px; background: var(--night-2); }
+    .bird-token { display: grid; width: 53px; height: 53px; place-items: center; border-radius: 19px 19px 19px 8px; background: #a7d8be; color: var(--ink); font-size: 1.8rem; transform: rotate(-5deg); }
+    .character:nth-child(3) .bird-token { background: var(--yellow); }
+    .character:nth-child(4) .bird-token { background: var(--coral); }
+    .character:nth-child(5) .bird-token { background: var(--sky); }
+    .character h3 { margin: 18px 0 3px; font-size: 1.03rem; }
+    .character p { margin: 0; color: var(--muted); font-size: .83rem; }
+    .parent { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--night-2); }
+    .parent-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+    .parent h2 { margin-bottom: 10px; font-size: clamp(1.8rem, 3.5vw, 2.7rem); line-height: 1; letter-spacing: -.05em; }
+    .parent p { color: var(--muted); }
+    .safety-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; margin: 0; padding: 0; list-style: none; }
+    .safety-list li { display: flex; gap: 10px; align-items: start; color: var(--cream); font-size: .95rem; }
+    .check { flex: 0 0 auto; color: var(--mint); font-weight: 900; }
+    .footer { padding: 34px 0 42px; border-top: 1px solid var(--line); color: var(--muted); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer p { margin: 0; font-size: .87rem; }
+    .footer a { color: var(--cream); font-weight: 800; }
+    .tiny-bird { color: var(--yellow); }
+    .print-only { display: none; }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .shelf { grid-template-columns: repeat(2, 1fr); }
+      .story-card:last-child { display: none; }
+      .cast { grid-template-columns: repeat(4, 1fr); }
+      .cast-intro { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 28px, 500px); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-cta { display: none; }
+      .links { display: none; position: absolute; left: 0; right: 0; top: 68px; padding: 14px 20px 20px; border-bottom: 1px solid var(--line); background: var(--night); flex-direction: column; align-items: stretch; gap: 0; }
+      .links.open { display: flex; }
+      .links a { padding: 13px 4px; }
+      .hero { padding: 48px 0 54px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 33px; }
+      h1 { max-width: 500px; font-size: clamp(3.25rem, 17vw, 5rem); }
+      .hero-copy { font-size: 1.05rem; }
+      .art-stage { width: calc(100% - 12px); margin-inline: auto; padding: 10px; border-radius: 24px; }
+      .art-stage img { border-radius: 17px; }
+      .art-tag { left: -8px; bottom: 10px; }
+      .sun-doodle { width: 50px; height: 50px; font-size: 1.55rem; }
+      .section { padding: 57px 0; }
+      .section-head { align-items: start; flex-direction: column; gap: 10px; }
+      .shelf { grid-template-columns: 1fr; }
+      .story-card { min-height: 300px; }
+      .story-card:last-child { display: flex; }
+      .activity-wrap { grid-template-columns: 1fr; gap: 24px; padding: 24px; border-radius: 27px; }
+      .print-preview { min-height: 235px; }
+      .cast { grid-template-columns: repeat(2, 1fr); }
+      .character { min-height: 165px; }
+      .parent { padding: 23px; }
+      .parent-grid { grid-template-columns: 1fr; gap: 10px; }
+      .safety-list { grid-template-columns: 1fr; gap: 11px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+    @page { size: letter portrait; margin: .35in; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      body * { visibility: hidden !important; }
+      #print-sheet, #print-sheet * { visibility: visible !important; }
+      #print-sheet { display: block; position: absolute; inset: 0; width: 100%; padding: 0; background: white; color: black; }
+      #print-sheet svg { display: block; width: 100%; height: 9.8in; }
+      .print-caption { display: block; text-align: center; font: bold 18pt Georgia, serif; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the adventure</a>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="Crayon Kite home"><span class="brand-mark" aria-hidden="true">✳</span><span>Crayon Kite</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu">☰</button>
+      <div class="links" id="site-links">
+        <a href="../index.html">Crayon Kite home</a>
+        <a href="#stories">Story shelf</a>
+        <a href="#color">Color &amp; make</a>
+        <a href="#friends">Meet the Chirps</a>
+        <a href="#grownups">Grown-ups</a>
+      </div>
+      <a class="nav-cta" href="#color">✎ &nbsp; Print a page</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true">✦</span> Little stories. Big adventures.</p>
+          <h1 id="hero-title">A whole sky of <em>adventure.</em></h1>
+          <p class="hero-copy">Flap along with Daisy, Chip, Caty, and Bella. Find a cozy story, meet a new friend, and bring the world of The Chirps to life with your crayons.</p>
+          <div class="hero-actions">
+            <a class="button" href="#stories">Explore the story shelf <span aria-hidden="true">✦</span></a>
+            <a class="button secondary" href="#color">I want to color <span aria-hidden="true">✎</span></a>
+          </div>
+          <p class="hero-note"><span aria-hidden="true">☼</span><span>Made for curious readers ages 4–8, with a grown-up nearby.</span></p>
+        </div>
+        <div class="art-stage">
+          <span class="sun-doodle" aria-hidden="true">✦</span>
+          <img src="../assets/chirps-family.jpg" alt="Daisy, Chip, Caty, and little Bella, a family of budgies ready for an adventure." width="1774" height="1013">
+          <span class="art-tag">Meet your new bird buddies!</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stories" aria-labelledby="stories-title">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow"><span aria-hidden="true">▱</span> Pick a path</p><h2 id="stories-title">Choose your next little adventure.</h2></div>
+          <p>Each Chirps tale is made for reading together, spotting clues, and talking about what the friends might do next.</p>
+        </div>
+        <div class="shelf">
+          <article class="story-card featured">
+            <div class="story-top"><span class="pill">A peek at the first tale</span><span class="number">STORY 01</span></div>
+            <div class="cover" aria-hidden="true">🌳 ✨ 🐦</div>
+            <div><h3>The Magical Forest &amp; the Feather Map</h3><p>A curious picture, a glowing forest, and a tiny bird who needs help finding home.</p><details class="story-sample"><summary>Read a story starter <span aria-hidden="true">✦</span></summary><div class="sample-copy"><p>In a quiet garden stood an old bird-house with a crooked roof. Daisy lived there with Chip and Caty. Every morning, they watched the sun climb over the fence.</p><p>One rainy day, Chip found a picture tucked beneath their nest. It showed trees with glowing leaves.</p><p>“The Magical Forest,” Daisy read. “My grandmother told me it lies beyond the hills.”</p></div></details></div>
+          </article>
+          <article class="story-card next">
+            <div class="story-top"><span class="pill">A new trail</span><span class="number">NEXT UP</span></div>
+            <div class="cover" aria-hidden="true">🌊 💧 🪶</div>
+            <div><h3>The Whispering River</h3><p>Caty follows the stream's quiet clues to help a duckling find a calm way home.</p><span class="small-link">A story on the map <span aria-hidden="true">✦</span></span></div>
+          </article>
+          <article class="story-card song">
+            <div class="story-top"><span class="pill">The big picture</span><span class="number">10 TALES</span></div>
+            <div class="cover" aria-hidden="true"><span class="moon">🌙</span> 🎵</div>
+            <div><h3>Follow the Sky Song</h3><p>Ten little clues connect the Chirps' journeys into one welcoming tune.</p><span class="small-link">See where the map leads <span aria-hidden="true">✦</span></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="color" aria-labelledby="color-title">
+      <div class="shell">
+        <div class="activity-wrap">
+          <div>
+            <p class="eyebrow"><span aria-hidden="true">✎</span> A screen-to-paper break</p>
+            <h2 id="color-title">Make the birdhouse yours!</h2>
+            <p>Pick your brightest colors, draw a little garden, and give the Chirps a home of your own. Ask a grown-up to help with printing.</p>
+            <button class="button" id="print-button" type="button">Print this coloring page <span aria-hidden="true">✦</span></button>
+          </div>
+          <div class="print-preview" aria-label="Preview of a black-and-white birdhouse coloring page">
+            <svg viewBox="0 0 520 330" role="img" aria-labelledby="color-art-title color-art-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="color-art-title">A little birdhouse to color</title><desc id="color-art-desc">A simple outlined birdhouse surrounded by flowers, leaves, and a smiling budgie.</desc>
+              <g fill="none" stroke="#173d3d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M95 263h330M125 263V161l135-91 135 91v102M105 163l155-105 155 105"/>
+                <path d="M222 263v-72a38 38 0 0 1 76 0v72M176 173h36v34h-36zM310 173h36v34h-36zM226 129h68"/>
+                <path d="M259 106v-30M249 92l10 10 10-10"/>
+                <path d="M100 263c-24-20-33-49-21-69m11 38-26-13m32-2 17-25M422 264c20-19 29-48 19-67m-9 35 25-13m-31-1-17-24"/>
+                <path d="M74 194c-13 1-19 14-11 24 12-1 19-14 11-24zm4 40c-15-2-23 9-17 22 14 2 23-9 17-22zm337-39c13 2 18 14 10 24-13-2-18-14-10-24zm-4 41c15-2 23 10 16 22-14 1-22-10-16-22z"/>
+                <path d="M344 253c0-24 17-42 39-42 20 0 35 15 35 35 0 22-18 39-43 39h-39l12-14c-3-5-4-11-4-18z"/>
+                <circle cx="365" cy="245" r="3" fill="#173d3d"/><circle cx="396" cy="245" r="3" fill="#173d3d"/>
+                <path d="M377 254l8 6-8 6M363 277l-12 16m41-16 12 16M183 280c-8-17-25-19-33-7-7 11 0 22 15 22h25M179 276c4-16 21-24 31-14s4 24-11 28"/>
+                <path d="M112 112c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17zm260-50c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17z"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div id="print-sheet" class="print-only" aria-hidden="true">
+          <p class="print-caption">My Chirps Birdhouse</p>
+          <svg viewBox="0 0 520 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M95 263h330M125 263V161l135-91 135 91v102M105 163l155-105 155 105"/><path d="M222 263v-72a38 38 0 0 1 76 0v72M176 173h36v34h-36zM310 173h36v34h-36zM226 129h68M259 106v-30M249 92l10 10 10-10"/>
+              <path d="M100 263c-24-20-33-49-21-69m11 38-26-13m32-2 17-25M422 264c20-19 29-48 19-67m-9 35 25-13m-31-1-17-24M74 194c-13 1-19 14-11 24 12-1 19-14 11-24zm4 40c-15-2-23 9-17 22 14 2 23-9 17-22zm337-39c13 2 18 14 10 24-13-2-18-14-10-24zm-4 41c15-2 23 10 16 22-14 1-22-10-16-22z"/>
+              <path d="M344 253c0-24 17-42 39-42 20 0 35 15 35 35 0 22-18 39-43 39h-39l12-14c-3-5-4-11-4-18z"/><circle cx="365" cy="245" r="3" fill="#111"/><circle cx="396" cy="245" r="3" fill="#111"/><path d="M377 254l8 6-8 6M363 277l-12 16m41-16 12 16M183 280c-8-17-25-19-33-7-7 11 0 22 15 22h25M179 276c4-16 21-24 31-14s4 24-11 28M112 112c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17zm260-50c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="friends" aria-labelledby="friends-title">
+      <div class="shell cast">
+        <div class="cast-intro"><p class="eyebrow"><span aria-hidden="true">♡</span> Your adventure team</p><h2 id="friends-title">Meet the Chirps!</h2><p>Good adventures are better when every friend has a part to play.</p></div>
+        <article class="character"><span class="bird-token" aria-hidden="true">🐦</span><div><h3>Daisy</h3><p>The caring, clever grown-up.</p></div></article>
+        <article class="character"><span class="bird-token" aria-hidden="true">🐤</span><div><h3>Chip</h3><p>The curious clue-finder.</p></div></article>
+        <article class="character"><span class="bird-token" aria-hidden="true">🐥</span><div><h3>Caty</h3><p>The careful listener.</p></div></article>
+        <article class="character"><span class="bird-token" aria-hidden="true">✦</span><div><h3>Bella</h3><p>The tiny new friend.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="grownups" aria-labelledby="grownups-title">
+      <div class="shell parent">
+        <div class="parent-grid">
+          <div><p class="eyebrow"><span aria-hidden="true">☼</span> A note for grown-ups</p><h2 id="grownups-title">A little more peace of mind.</h2><p>Budgie Adventures is designed for shared reading and offline creativity. Children can explore the stories and print the activity without creating an account.</p></div>
+          <ul class="safety-list">
+            <li><span class="check" aria-hidden="true">✓</span><span>No child accounts, profiles, or personal-data forms.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>No comments, direct messages, or user uploads.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Printable activity works right from this page.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Books are gentle read-aloud adventures for ages 4–8.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✳</span><span>Budgie Adventures</span></a><p>Little wings. Kind hearts. <span class="tiny-bird" aria-hidden="true">♥</span></p><p>For children to explore with a grown-up nearby.</p></div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#site-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      menu.classList.toggle('open', !isOpen);
+    });
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open menu');
+        menu.classList.remove('open');
+      }
+    });
+    document.querySelector('#print-button').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
