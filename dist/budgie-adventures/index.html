@@ -66,6 +66,11 @@
     .art-stage img { width: 100%; height: auto; display: block; border-radius: 24px; mix-blend-mode: multiply; }
     .art-tag { position: absolute; left: -24px; bottom: 24px; padding: 11px 16px; border: 3px solid var(--night); border-radius: 16px; background: var(--coral); color: var(--ink); font-size: .85rem; font-weight: 900; transform: rotate(-5deg); }
     .sun-doodle { position: absolute; top: -19px; right: 23px; display: grid; width: 63px; height: 63px; place-items: center; border-radius: 50%; background: var(--yellow); color: var(--ink); font-size: 2rem; }
+    .song-player-band { padding: 18px 0; border-bottom: 1px solid var(--line); background: rgba(24, 61, 67, .55); }
+    .song-player-inner { display: grid; grid-template-columns: minmax(190px, .55fr) minmax(0, 1fr); align-items: center; gap: 24px; }
+    .song-player-copy .eyebrow { margin: 0 0 4px; }
+    .song-player-copy p:last-child { margin: 0; color: var(--muted); font-weight: 800; }
+    .udio-player { display: block; width: 100%; max-width: 520px; height: 122px; border: 0; border-radius: 16px; background: var(--night-2); }
     .section { padding: clamp(60px, 8vw, 92px) 0; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
     .section-head h2 { max-width: 650px; margin: 0; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -.05em; }
@@ -152,6 +157,8 @@
       .links.open { display: flex; }
       .links a { padding: 13px 4px; }
       .hero { padding: 48px 0 54px; }
+      .song-player-inner { grid-template-columns: 1fr; gap: 10px; }
+      .udio-player { max-width: 100%; height: 132px; }
       .hero-grid { grid-template-columns: 1fr; gap: 33px; }
       h1 { max-width: 500px; font-size: clamp(3.25rem, 17vw, 5rem); }
       .hero-copy { font-size: 1.05rem; }
@@ -197,6 +204,15 @@
   </header>
 
   <main id="main">
+    <section class="song-player-band" aria-labelledby="theme-song-title">
+      <div class="shell song-player-inner">
+        <div class="song-player-copy">
+          <p class="eyebrow"><span aria-hidden="true">♫</span> The Budgie Adventures theme</p>
+          <p id="theme-song-title">Budgie Adventure Club, Let's Go! remix v2 ext v2</p>
+        </div>
+        <iframe class="udio-player" src="https://www.udio.com/embed/j78w4VqNS9Pgdpy8A7Z9fX" title="Udio player: Budgie Adventure Club, Let's Go! remix v2 ext v2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </section>
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div>
