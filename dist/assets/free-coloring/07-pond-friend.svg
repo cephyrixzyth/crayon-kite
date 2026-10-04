@@ -13,35 +13,73 @@
   <rect x="28" y="28" width="794" height="1044" rx="24" fill="#fff" stroke="#111" stroke-width="3"/>
   <text class="title" x="425" y="100" text-anchor="middle">Pond Friend</text>
   <text class="small" x="425" y="143" text-anchor="middle">A duckling stops by to say hello.</text>
-  <g class="ink"><ellipse class="white" cx="470" cy="750" rx="274" ry="64"/><path d="M250 751q55-28 110 0t110 0 110 0 110 0M75 693h340"/><path class="white" d="M650 662c-5-30 18-51 44-44l30 8c17 5 25 20 18 34-6 14-24 20-43 12l-14-6-22 20-8-24z"/><circle class="dot" cx="715" cy="640" r="3"/><path d="m740 640 24 6-24 7m-38 24-13 20m42-20 3 20"/></g>
-  <g class="ink" transform="translate(80 465) scale(1.15)">
-      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
-      <circle class="white" cx="63" cy="34" r="25"/>
-      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
-      <circle class="dot" cx="70" cy="30" r="3.4"/>
-      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
-      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
-    </g><g class="ink" transform="translate(205 440) scale(1.4)">
-      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
-      <circle class="white" cx="63" cy="34" r="25"/>
-      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
-      <circle class="dot" cx="70" cy="30" r="3.4"/>
-      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
-      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
-    </g><g class="ink" transform="translate(370 460) scale(1.25)">
-      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
-      <circle class="white" cx="63" cy="34" r="25"/>
-      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
-      <circle class="dot" cx="70" cy="30" r="3.4"/>
-      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
-      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
-    </g><g class="ink" transform="translate(510 490) scale(1.0)">
-      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
-      <circle class="white" cx="63" cy="34" r="25"/>
-      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
-      <circle class="dot" cx="70" cy="30" r="3.4"/>
-      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
-      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+  <g class="ink"><ellipse class="white" cx="470" cy="750" rx="274" ry="64"/><path d="M250 751q55-28 110 0t110 0 110 0 110 0M75 693h675"/><path class="white" d="M650 662c-5-30 18-51 44-44l30 8c17 5 25 20 18 34-6 14-24 20-43 12l-14-6-22 20-8-24z"/><circle class="dot" cx="715" cy="640" r="3"/><path d="m740 640 24 6-24 7m-38 24-13 20m42-20 3 20"/></g><g transform="translate(63 477) scale(0.94)  ">
+      <g class="ink">
+        <path class="white" d="M68 105C47 89 43 56 59 34 76 11 112 13 132 34c20 21 20 49 5 71 17 24 20 55 9 83-11 27-30 39-51 39-27 0-47-17-54-43-8-29-2-57 12-79z"/>
+        <path class="white" d="M58 169c-19 14-31 34-43 51 28-4 49-16 66-34z"/>
+        <path d="M53 190 23 218m39-23-23 24"/>
+        <path class="white" d="M61 125C45 125 45 154 56 177c14 23 47 24 69 6 13-11 15-28 5-43-15-20-47-28-69-15z"/>
+        <path d="M59 141q24-24 52-9m-48 22q22-20 49-9m-44 23q19-15 39-10"/>
+        <path class="white" d="M80 61c7-18 32-20 43-5 10 14 3 34-12 39-17 5-34-15-31-34z"/>
+        <circle class="dot" cx="108" cy="72" r="7"/><circle class="white" cx="110" cy="69" r="2.3"/>
+        <path class="white" d="M122 82q15-7 21 2l-11 17q-11-3-10-19z"/><circle class="dot" cx="132" cy="84" r="2"/>
+        <path d="M67 89q10-9 19 0m-22 8q10-8 20 0"/>
+        <circle class="dot" cx="72" cy="108" r="4"/><circle class="dot" cx="83" cy="113" r="4"/><circle class="dot" cx="67" cy="119" r="3.5"/>
+        <path d="M49 59q13-11 26-2m-29 12q13-10 28-2m-29 12q13-9 28-2"/>
+        <path d="M77 27q6-19 17-11 7-21 19-4 13-11 18 9"/><path d="M86 151q14-16 28 0t-14 26q-28-10-14-26z"/>
+        <path d="M82 207v15m0 0q-9 0-14 8m14-8q8 0 12 8m18-8v-15m0 15q-9 0-14 8m14-8q8 0 12 8"/>
+      </g>
+    </g><g transform="translate(222 469) scale(0.98) rotate(-9 100 150) translate(200 0) scale(-1 1)">
+      <g class="ink">
+        <path class="white" d="M68 105C47 89 43 56 59 34 76 11 112 13 132 34c20 21 20 49 5 71 17 24 20 55 9 83-11 27-30 39-51 39-27 0-47-17-54-43-8-29-2-57 12-79z"/>
+        <path class="white" d="M58 169c-19 14-31 34-43 51 28-4 49-16 66-34z"/>
+        <path d="M53 190 23 218m39-23-23 24"/>
+        <path class="white" d="M61 125C45 125 45 154 56 177c14 23 47 24 69 6 13-11 15-28 5-43-15-20-47-28-69-15z"/>
+        <path d="M59 141q24-24 52-9m-48 22q22-20 49-9m-44 23q19-15 39-10"/>
+        <path class="white" d="M80 61c7-18 32-20 43-5 10 14 3 34-12 39-17 5-34-15-31-34z"/>
+        <circle class="dot" cx="108" cy="72" r="7"/><circle class="white" cx="110" cy="69" r="2.3"/>
+        <path class="white" d="M122 82q15-7 21 2l-11 17q-11-3-10-19z"/><circle class="dot" cx="132" cy="84" r="2"/>
+        <path d="M67 89q10-9 19 0m-22 8q10-8 20 0"/>
+        <circle class="dot" cx="72" cy="108" r="4"/><circle class="dot" cx="83" cy="113" r="4"/><circle class="dot" cx="67" cy="119" r="3.5"/>
+        <path d="M50 69q12-11 24-3m-21 12q13-10 27-3m-21 12q13-9 27-2"/>
+        <path d="m75 37 12-13 8 12 14-14 14 17"/>
+        <path d="M115 91q9-7 17 0"/>
+        <path d="M82 207v15m0 0q-9 0-14 8m14-8q8 0 12 8m18-8v-15m0 15q-9 0-14 8m14-8q8 0 12 8"/>
+      </g>
+    </g><g transform="translate(395 487) scale(0.9) rotate(10 100 150) ">
+      <g class="ink">
+        <path class="white" d="M68 105C47 89 43 56 59 34 76 11 112 13 132 34c20 21 20 49 5 71 17 24 20 55 9 83-11 27-30 39-51 39-27 0-47-17-54-43-8-29-2-57 12-79z"/>
+        <path class="white" d="M58 169c-19 14-31 34-43 51 28-4 49-16 66-34z"/>
+        <path d="M53 190 23 218m39-23-23 24"/>
+        <path class="white" d="M61 125C45 125 45 154 56 177c14 23 47 24 69 6 13-11 15-28 5-43-15-20-47-28-69-15z"/>
+        <path d="M59 141q24-24 52-9m-48 22q22-20 49-9m-44 23q19-15 39-10"/>
+        <path class="white" d="M80 61c7-18 32-20 43-5 10 14 3 34-12 39-17 5-34-15-31-34z"/>
+        <circle class="dot" cx="108" cy="72" r="7"/><circle class="white" cx="110" cy="69" r="2.3"/>
+        <path class="white" d="M122 82q15-7 21 2l-11 17q-11-3-10-19z"/><circle class="dot" cx="132" cy="84" r="2"/>
+        <path d="M67 89q10-9 19 0m-22 8q10-8 20 0"/>
+        <circle class="dot" cx="72" cy="108" r="4"/><circle class="dot" cx="83" cy="113" r="4"/><circle class="dot" cx="67" cy="119" r="3.5"/>
+        <path d="M49 59q13-11 26-2m-29 12q13-10 28-2m-29 12q13-9 28-2"/>
+        <path d="M127 104c-8-10-22-1-13 9l13 12 13-12c9-10-5-19-13-9z"/><path d="M73 40q10-9 20-2m-18 10q10-8 20-2"/>
+        <path d="M84 96q8 7 15 0"/>
+        <path d="M82 207v15m0 0q-9 0-14 8m14-8q8 0 12 8m18-8v-15m0 15q-9 0-14 8m14-8q8 0 12 8"/>
+      </g>
+    </g><g transform="translate(548 537) scale(0.68)  ">
+      <g class="ink">
+        <path class="white" d="M68 105C47 89 43 56 59 34 76 11 112 13 132 34c20 21 20 49 5 71 17 24 20 55 9 83-11 27-30 39-51 39-27 0-47-17-54-43-8-29-2-57 12-79z"/>
+        <path class="white" d="M58 169c-19 14-31 34-43 51 28-4 49-16 66-34z"/>
+        <path d="M53 190 23 218m39-23-23 24"/>
+        <path class="white" d="M59 132C39 115 34 77 38 51c27 12 49 41 57 70 4 15-5 34-22 45z"/>
+        <path d="M59 141q24-24 52-9m-48 22q22-20 49-9m-44 23q19-15 39-10"/>
+        <path class="white" d="M80 61c7-18 32-20 43-5 10 14 3 34-12 39-17 5-34-15-31-34z"/>
+        <circle class="dot" cx="108" cy="72" r="7"/><circle class="white" cx="110" cy="69" r="2.3"/>
+        <path class="white" d="M122 82q15-7 21 2l-11 17q-11-3-10-19z"/><circle class="dot" cx="132" cy="84" r="2"/>
+        <path d="M67 89q10-9 19 0m-22 8q10-8 20 0"/>
+        <circle class="dot" cx="72" cy="108" r="4"/><circle class="dot" cx="83" cy="113" r="4"/><circle class="dot" cx="67" cy="119" r="3.5"/>
+        <path d="M49 59q13-11 26-2m-29 12q13-10 28-2m-29 12q13-9 28-2"/>
+        <path d="m100 40 4 10 11 1-8 7 3 11-10-6-9 6 2-11-8-7 11-1z"/>
+        <path d="M77 160q17-17 36 0m-31 11q14-12 28 0"/>
+        <path d="M82 207v15m0 0q-9 0-14 8m14-8q8 0 12 8m18-8v-15m0 15q-9 0-14 8m14-8q8 0 12 8"/>
+      </g>
     </g>
   <text class="small" x="425" y="914" text-anchor="middle">Color the picture your way!</text>
   <text class="small" x="100" y="1005">My name:</text><path d="M205 1010h330" class="ink" stroke-width="2.5"/>
