@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11in" viewBox="0 0 850 1100" role="img" aria-labelledby="page-title page-desc">
+  <title id="page-title">Pond Friend — free Budgie Adventures coloring page</title>
+  <desc id="page-desc">A duckling stops by to say hello. Simple black outlines on a white page.</desc>
+  <style>
+    .ink { fill: none; stroke: #111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .white { fill: #fff; } .dot { fill: #111; stroke: none; }
+    .title { fill: #111; font: 700 38px 'Trebuchet MS', Arial, sans-serif; }
+    .small { fill: #111; font: 22px 'Trebuchet MS', Arial, sans-serif; }
+    .tiny { fill: #111; font: 15px 'Trebuchet MS', Arial, sans-serif; }
+    @media print { @page { size: letter portrait; margin: 0; } svg { width: 8.5in; height: 11in; } }
+  </style>
+  <rect x="28" y="28" width="794" height="1044" rx="24" fill="#fff" stroke="#111" stroke-width="3"/>
+  <text class="title" x="425" y="100" text-anchor="middle">Pond Friend</text>
+  <text class="small" x="425" y="143" text-anchor="middle">A duckling stops by to say hello.</text>
+  <g class="ink"><ellipse class="white" cx="470" cy="750" rx="274" ry="64"/><path d="M250 751q55-28 110 0t110 0 110 0 110 0M75 693h340"/><path class="white" d="M650 662c-5-30 18-51 44-44l30 8c17 5 25 20 18 34-6 14-24 20-43 12l-14-6-22 20-8-24z"/><circle class="dot" cx="715" cy="640" r="3"/><path d="m740 640 24 6-24 7m-38 24-13 20m42-20 3 20"/></g>
+  <g class="ink" transform="translate(80 465) scale(1.15)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(205 440) scale(1.4)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(370 460) scale(1.25)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(510 490) scale(1.0)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g>
+  <text class="small" x="425" y="914" text-anchor="middle">Color the picture your way!</text>
+  <text class="small" x="100" y="1005">My name:</text><path d="M205 1010h330" class="ink" stroke-width="2.5"/>
+  <text class="tiny" x="750" y="1038" text-anchor="end">Crayon Kite · free page</text>
+</svg>

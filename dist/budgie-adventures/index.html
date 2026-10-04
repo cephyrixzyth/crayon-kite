@@ -89,13 +89,29 @@
     .sample-copy { padding: 12px 14px; border-left: 2px solid var(--yellow); color: var(--cream); background: rgba(11, 35, 39, .25); border-radius: 0 12px 12px 0; }
     .sample-copy p { margin: 0 0 10px; color: var(--cream); }
     .sample-copy p:last-child { margin-bottom: 0; }
-    .activity-wrap { display: grid; grid-template-columns: .94fr 1.06fr; gap: 35px; align-items: center; padding: clamp(24px, 5vw, 48px); border-radius: 36px; background: #dbb769; color: var(--ink); }
-    .activity-wrap .eyebrow { color: #47615a; }
-    .activity-wrap h2 { max-width: 420px; margin: 0 0 14px; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.06em; }
-    .activity-wrap p { max-width: 430px; color: #365551; }
-    .activity-wrap .button { background: var(--night); color: var(--cream); }
-    .print-preview { display: grid; place-items: center; min-height: 320px; padding: 19px; border-radius: 22px; background: #fffdf4; transform: rotate(1deg); box-shadow: 0 12px 28px rgba(24, 57, 51, .18); }
-    .print-preview svg { display: block; width: min(100%, 460px); max-height: 310px; }
+    .color-intro { max-width: 760px; margin-bottom: 25px; }
+    .color-intro h2 { margin: 0 0 12px; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.06em; }
+    .color-intro p { max-width: 650px; margin: 0; color: var(--muted); }
+    .color-picker { display: flex; gap: 12px; overflow-x: auto; padding: 5px 3px 14px; scroll-snap-type: x mandatory; scrollbar-color: var(--line) transparent; }
+    .color-choice { flex: 0 0 142px; overflow: hidden; padding: 0; border: 2px solid var(--line); border-radius: 15px; background: var(--night-2); color: var(--cream); text-align: left; cursor: pointer; scroll-snap-align: start; }
+    .color-choice[aria-pressed="true"] { border-color: var(--yellow); box-shadow: 0 0 0 2px rgba(255, 205, 92, .2); }
+    .color-choice img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #fffdf4; }
+    .color-choice span { display: block; padding: 9px 10px; font-size: .84rem; font-weight: 850; }
+    .color-choice:focus-visible, .print-button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+    .selected-page { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1fr); gap: clamp(22px, 4vw, 46px); align-items: center; margin-top: 17px; padding: clamp(18px, 3vw, 30px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--night-2); }
+    .selected-copy h3 { margin: 8px 0; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.05; letter-spacing: -.04em; }
+    .selected-copy p { margin: 0 0 17px; color: var(--muted); }
+    .print-button { min-height: 48px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--yellow); color: var(--ink); font: inherit; font-weight: 900; cursor: pointer; }
+    .color-note { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
+    .selected-art-frame { max-height: 620px; overflow: hidden; display: grid; place-items: center; padding: 10px; border-radius: 15px; background: #fffdf4; }
+    .selected-art-frame img { display: block; width: auto; height: min(68vh, 590px); max-width: 100%; object-fit: contain; }
+    @page { size: letter portrait; margin: .3in; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      body * { visibility: hidden !important; }
+      #selected-art { visibility: visible !important; position: fixed; inset: 0; width: 100%; height: 10.4in; max-width: 100%; object-fit: contain; }
+      .selected-art-frame { display: block; position: static; max-height: none; overflow: visible; padding: 0; background: white; }
+    }
     .cast { display: grid; grid-template-columns: 1.1fr repeat(4, 1fr); align-items: stretch; gap: 13px; }
     .cast-intro { display: flex; flex-direction: column; justify-content: center; padding-right: 12px; }
     .cast-intro h2 { margin: 0 0 10px; font-size: clamp(2rem, 3.3vw, 2.8rem); line-height: 1; letter-spacing: -.05em; }
@@ -148,8 +164,9 @@
       .shelf { grid-template-columns: 1fr; }
       .story-card { min-height: 300px; }
       .story-card:last-child { display: flex; }
-      .activity-wrap { grid-template-columns: 1fr; gap: 24px; padding: 24px; border-radius: 27px; }
-      .print-preview { min-height: 235px; }
+      .color-choice { flex-basis: 122px; }
+      .selected-page { grid-template-columns: 1fr; }
+      .selected-art-frame img { height: min(75vh, 560px); }
       .cast { grid-template-columns: repeat(2, 1fr); }
       .character { min-height: 165px; }
       .parent { padding: 23px; }
@@ -159,15 +176,6 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-    }
-    @page { size: letter portrait; margin: .35in; }
-    @media print {
-      body { background: white !important; color: black !important; }
-      body * { visibility: hidden !important; }
-      #print-sheet, #print-sheet * { visibility: visible !important; }
-      #print-sheet { display: block; position: absolute; inset: 0; width: 100%; padding: 0; background: white; color: black; }
-      #print-sheet svg { display: block; width: 100%; height: 9.8in; }
-      .print-caption { display: block; text-align: center; font: bold 18pt Georgia, serif; }
     }
   </style>
 </head>
@@ -237,39 +245,32 @@
 
     <section class="section" id="color" aria-labelledby="color-title">
       <div class="shell">
-        <div class="activity-wrap">
-          <div>
-            <p class="eyebrow"><span aria-hidden="true">✎</span> A screen-to-paper break</p>
-            <h2 id="color-title">Make the birdhouse yours!</h2>
-            <p>Pick your brightest colors, draw a little garden, and give the Chirps a home of your own. Ask a grown-up to help with printing.</p>
-            <button class="button" id="print-button" type="button">Print this coloring page <span aria-hidden="true">✦</span></button>
-          </div>
-          <div class="print-preview" aria-label="Preview of a black-and-white birdhouse coloring page">
-            <svg viewBox="0 0 520 330" role="img" aria-labelledby="color-art-title color-art-desc" xmlns="http://www.w3.org/2000/svg">
-              <title id="color-art-title">A little birdhouse to color</title><desc id="color-art-desc">A simple outlined birdhouse surrounded by flowers, leaves, and a smiling budgie.</desc>
-              <g fill="none" stroke="#173d3d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M95 263h330M125 263V161l135-91 135 91v102M105 163l155-105 155 105"/>
-                <path d="M222 263v-72a38 38 0 0 1 76 0v72M176 173h36v34h-36zM310 173h36v34h-36zM226 129h68"/>
-                <path d="M259 106v-30M249 92l10 10 10-10"/>
-                <path d="M100 263c-24-20-33-49-21-69m11 38-26-13m32-2 17-25M422 264c20-19 29-48 19-67m-9 35 25-13m-31-1-17-24"/>
-                <path d="M74 194c-13 1-19 14-11 24 12-1 19-14 11-24zm4 40c-15-2-23 9-17 22 14 2 23-9 17-22zm337-39c13 2 18 14 10 24-13-2-18-14-10-24zm-4 41c15-2 23 10 16 22-14 1-22-10-16-22z"/>
-                <path d="M344 253c0-24 17-42 39-42 20 0 35 15 35 35 0 22-18 39-43 39h-39l12-14c-3-5-4-11-4-18z"/>
-                <circle cx="365" cy="245" r="3" fill="#173d3d"/><circle cx="396" cy="245" r="3" fill="#173d3d"/>
-                <path d="M377 254l8 6-8 6M363 277l-12 16m41-16 12 16M183 280c-8-17-25-19-33-7-7 11 0 22 15 22h25M179 276c4-16 21-24 31-14s4 24-11 28"/>
-                <path d="M112 112c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17zm260-50c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17z"/>
-              </g>
-            </svg>
-          </div>
+        <div class="color-intro">
+          <p class="eyebrow"><span aria-hidden="true">✎</span> A screen-to-paper break</p>
+          <h2 id="color-title">Ten free pages to color.</h2>
+          <p>Meet Daisy, Chip, Caty, and Bella in some very simple pictures. These little printables are made for a quick coloring break; the books have more detailed story pictures. Pick a page, then ask a grown-up to help print it.</p>
         </div>
-        <div id="print-sheet" class="print-only" aria-hidden="true">
-          <p class="print-caption">My Chirps Birdhouse</p>
-          <svg viewBox="0 0 520 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M95 263h330M125 263V161l135-91 135 91v102M105 163l155-105 155 105"/><path d="M222 263v-72a38 38 0 0 1 76 0v72M176 173h36v34h-36zM310 173h36v34h-36zM226 129h68M259 106v-30M249 92l10 10 10-10"/>
-              <path d="M100 263c-24-20-33-49-21-69m11 38-26-13m32-2 17-25M422 264c20-19 29-48 19-67m-9 35 25-13m-31-1-17-24M74 194c-13 1-19 14-11 24 12-1 19-14 11-24zm4 40c-15-2-23 9-17 22 14 2 23-9 17-22zm337-39c13 2 18 14 10 24-13-2-18-14-10-24zm-4 41c15-2 23 10 16 22-14 1-22-10-16-22z"/>
-              <path d="M344 253c0-24 17-42 39-42 20 0 35 15 35 35 0 22-18 39-43 39h-39l12-14c-3-5-4-11-4-18z"/><circle cx="365" cy="245" r="3" fill="#111"/><circle cx="396" cy="245" r="3" fill="#111"/><path d="M377 254l8 6-8 6M363 277l-12 16m41-16 12 16M183 280c-8-17-25-19-33-7-7 11 0 22 15 22h25M179 276c4-16 21-24 31-14s4 24-11 28M112 112c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17zm260-50c0-10 9-18 19-18s19 8 19 18-8 17-19 17-19-7-19-17z"/>
-            </g>
-          </svg>
+        <div class="color-picker" role="group" aria-label="Choose a free coloring page">
+          <button class="color-choice" type="button" aria-pressed="true" data-file="01-hello-chirps.svg" data-title="Hello, Chirps!" data-description="The whole budgie family says hello." data-alt="Simple outline of the four Chirps budgies on a branch."><img src="../assets/free-coloring/01-hello-chirps.svg" alt="" loading="lazy"><span>01 · Hello, Chirps!</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="02-birdhouse-home.svg" data-title="Birdhouse Home" data-description="A little house for the feathered friends." data-alt="Simple outline of the Chirps beside their little birdhouse."><img src="../assets/free-coloring/02-birdhouse-home.svg" alt="" loading="lazy"><span>02 · Birdhouse Home</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="03-flower-garden.svg" data-title="Flower Garden" data-description="Big flowers and little bird friends." data-alt="Simple outline of four budgies among three large flowers."><img src="../assets/free-coloring/03-flower-garden.svg" alt="" loading="lazy"><span>03 · Flower Garden</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="04-seed-snack.svg" data-title="Seed Snack" data-description="The family gathers for a tiny snack." data-alt="Simple outline of the Chirps sharing a bowl of seeds."><img src="../assets/free-coloring/04-seed-snack.svg" alt="" loading="lazy"><span>04 · Seed Snack</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="05-swing-time.svg" data-title="Swing Time" data-description="Take turns on the garden swing." data-alt="Simple outline of budgies sitting on a swing beneath a branch."><img src="../assets/free-coloring/05-swing-time.svg" alt="" loading="lazy"><span>05 · Swing Time</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="06-cloud-watchers.svg" data-title="Cloud Watchers" data-description="What shapes can you spot in the sky?" data-alt="Simple outline of four budgies looking up at clouds and a sun."><img src="../assets/free-coloring/06-cloud-watchers.svg" alt="" loading="lazy"><span>06 · Cloud Watchers</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="07-pond-friend.svg" data-title="Pond Friend" data-description="A duckling stops by to say hello." data-alt="Simple outline of the budgie family waving to a duckling by a pond."><img src="../assets/free-coloring/07-pond-friend.svg" alt="" loading="lazy"><span>07 · Pond Friend</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="08-feather-trail.svg" data-title="Feather Trail" data-description="Follow the feathers across the page." data-alt="Simple outline of four budgies following a trail of feathers."><img src="../assets/free-coloring/08-feather-trail.svg" alt="" loading="lazy"><span>08 · Feather Trail</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="09-garden-picnic.svg" data-title="Garden Picnic" data-description="A blanket, a few treats, and the Chirps." data-alt="Simple outline of the Chirps having a small garden picnic."><img src="../assets/free-coloring/09-garden-picnic.svg" alt="" loading="lazy"><span>09 · Garden Picnic</span></button>
+          <button class="color-choice" type="button" aria-pressed="false" data-file="10-sky-song.svg" data-title="Sky Song" data-description="Sing a tune with the birds." data-alt="Simple outline of four budgies with a sun, clouds, and music notes."><img src="../assets/free-coloring/10-sky-song.svg" alt="" loading="lazy"><span>10 · Sky Song</span></button>
+        </div>
+        <div class="selected-page">
+          <div class="selected-copy">
+            <p class="eyebrow"><span aria-hidden="true">✦</span> Your coloring page</p>
+            <h3 id="selected-title">Hello, Chirps!</h3>
+            <p id="selected-description">The whole budgie family says hello.</p>
+            <button class="print-button" id="print-button" type="button">Print this page <span aria-hidden="true">✎</span></button>
+            <p class="color-note">Ask a grown-up to help print. Choose “fit to page” for the best result.</p>
+          </div>
+          <div class="selected-art-frame"><img id="selected-art" src="../assets/free-coloring/01-hello-chirps.svg" alt="Simple outline of the four Chirps budgies on a branch."></div>
         </div>
       </div>
     </section>
@@ -314,6 +315,17 @@
         menuButton.setAttribute('aria-label', 'Open menu');
         menu.classList.remove('open');
       }
+    });
+    const pageChoices = [...document.querySelectorAll('.color-choice')];
+    const selectedArt = document.querySelector('#selected-art');
+    pageChoices.forEach((choice) => {
+      choice.addEventListener('click', () => {
+        pageChoices.forEach((item) => item.setAttribute('aria-pressed', String(item === choice)));
+        selectedArt.src = `../assets/free-coloring/${choice.dataset.file}`;
+        selectedArt.alt = choice.dataset.alt;
+        document.querySelector('#selected-title').textContent = choice.dataset.title;
+        document.querySelector('#selected-description').textContent = choice.dataset.description;
+      });
     });
     document.querySelector('#print-button').addEventListener('click', () => window.print());
   </script>

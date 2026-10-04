@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11in" viewBox="0 0 850 1100" role="img" aria-labelledby="page-title page-desc">
+  <title id="page-title">Sky Song — free Budgie Adventures coloring page</title>
+  <desc id="page-desc">Sing a tune with the birds. Simple black outlines on a white page.</desc>
+  <style>
+    .ink { fill: none; stroke: #111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .white { fill: #fff; } .dot { fill: #111; stroke: none; }
+    .title { fill: #111; font: 700 38px 'Trebuchet MS', Arial, sans-serif; }
+    .small { fill: #111; font: 22px 'Trebuchet MS', Arial, sans-serif; }
+    .tiny { fill: #111; font: 15px 'Trebuchet MS', Arial, sans-serif; }
+    @media print { @page { size: letter portrait; margin: 0; } svg { width: 8.5in; height: 11in; } }
+  </style>
+  <rect x="28" y="28" width="794" height="1044" rx="24" fill="#fff" stroke="#111" stroke-width="3"/>
+  <text class="title" x="425" y="100" text-anchor="middle">Sky Song</text>
+  <text class="small" x="425" y="143" text-anchor="middle">Sing a tune with the birds.</text>
+  <g class="ink" transform="translate(95 245)"><path class="white" d="M0 39c-20 0-26-24-8-32 7-24 41-23 48-3 23-4 32 27 9 35z"/></g><g class="ink" transform="translate(620 240)"><path class="white" d="M0 39c-20 0-26-24-8-32 7-24 41-23 48-3 23-4 32 27 9 35z"/></g><g class="ink"><circle class="white" cx="422" cy="275" r="44"/><path d="M422 210v-23m0 176v-23m67-65h23m-180 0h23m115-47 17-17m-130 130 17-17m96 0 17 17m-130-130 17 17M180 410v-65l47-10v66m0-66v-25l47-10v62m-94 0q-12 10 0 15t0 13m47-29q-12 10 0 15t0 13"/></g>
+  <g class="ink" transform="translate(105 465) scale(1.4)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(255 430) scale(1.6)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(445 455) scale(1.4)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g><g class="ink" transform="translate(620 485) scale(1.15)">
+      <path class="white" d="M43 48C19 46 10 68 17 84c6 15 24 23 43 19 22-4 36-18 34-38-2-16-15-25-30-22z"/>
+      <circle class="white" cx="63" cy="34" r="25"/>
+      <path d="M45 13 37 2l18 11m-2-1L60 0l8 15m-1 0L79 7l-4 16M83 31l20 6-19 8z"/>
+      <circle class="dot" cx="70" cy="30" r="3.4"/>
+      <path class="white" d="M34 59c9-12 27-16 39-7 8 6 12 18 7 29-12 10-28 13-43 5-7-6-9-17-3-27z"/>
+      <path d="M41 63c8-4 17-4 25 0m-26 8c8-3 17-3 25 0m-21 8c7-2 14-2 20 0M25 82 5 111l23-9 17 2-9-21m27 16-2 14m17-18 5 18m-23-1h12m7 0h12"/>
+    </g>
+  <text class="small" x="425" y="914" text-anchor="middle">Color the picture your way!</text>
+  <text class="small" x="100" y="1005">My name:</text><path d="M205 1010h330" class="ink" stroke-width="2.5"/>
+  <text class="tiny" x="750" y="1038" text-anchor="end">Crayon Kite · free page</text>
+</svg>
