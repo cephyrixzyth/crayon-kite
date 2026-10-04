@@ -15,7 +15,3 @@ The GitHub Actions workflow in `.github/workflows/deploy-pages.yml` publishes th
 
 Serve the `dist/` folder with any static web server. The home page is `/` and the Budgie Adventures page is `/budgie-adventures/`.
 
-## Design benchmark
-
-The representative 50-site scan and the patterns used for the site are in [`research/50-site-benchmark.md`](research/50-site-benchmark.md).
-
