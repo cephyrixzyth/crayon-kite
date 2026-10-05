@@ -5,7 +5,7 @@ Crayon Kite makes story-filled coloring books for little artists. This site has 
 - `dist/index.html` — the Crayon Kite brand and book shelf.
 - `dist/budgie-adventures/index.html` — Budgie Adventures with The Chirps, including a story starter and printable activity.
 
-The static site uses no account creation, comments, messaging, uploads, or tracking scripts. Manuscripts and products are still in development; this site does not claim to sell a released book or accept payments.
+The static site uses Cloudflare Web Analytics for page-view reporting on `crayonkite.com`, with a separate analytics property from the Oneirodex and personal sites. It has no account creation, comments, messaging, or user uploads. Manuscripts and products are still in development; this site does not claim to sell a released book or accept payments.
 
 ## Deploy
 
