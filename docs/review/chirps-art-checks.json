@@ -1,0 +1,29 @@
+{
+  "integratedCardsChecked": 8,
+  "characterSheets": 4,
+  "actingPoses": 12,
+  "castLineups": 1,
+  "pngMaster": [
+    1774,
+    887
+  ],
+  "webp": [
+    1200,
+    600
+  ],
+  "viewports": [
+    [
+      390,
+      640
+    ],
+    [
+      768,
+      580
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "allAssetsAndNavigation": true
+}\n

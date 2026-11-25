@@ -1,0 +1,37 @@
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #f8f4df; color: #213e40; font: 1.08rem/1.6 system-ui, sans-serif; }
+header { background: #173c40; color: #fffbee; }
+nav, main { max-width: 58rem; margin: 0 auto; padding: 1rem clamp(1rem, 5vw, 3rem); }
+nav { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1.4rem; }
+nav .brand { font-weight: 800; margin-right: auto; }
+nav a { color: inherit; padding: .4rem 0; }
+main { padding-block: 2rem 4rem; }
+h1, h2 { line-height: 1.13; text-wrap: balance; }
+h1 { max-width: 22ch; font: 700 clamp(2.2rem,6vw,4rem)/1.05 Georgia,serif; margin: .35em 0; }
+a { color: #1c5547; text-underline-offset: .18em; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #ae5515; outline-offset: 3px; }
+.actions { display:flex; align-items:center; flex-wrap:wrap; gap: .75rem 1.3rem; }
+button { padding: .65rem 1rem; border: 0; border-radius: 2rem; background: #ffcf57; color: #193837; font: inherit; font-weight: 700; cursor:pointer; }
+button:disabled { opacity:.65; cursor: wait; }
+.skip { position:absolute; inset-inline-start:1rem; transform:translateY(-150%); background:white; padding:.4rem; }
+.skip:focus { transform:none; }
+.sheet-art { margin: 1rem 0; max-width: 42rem; padding: .65rem; background: #fff; border:1px solid #abc0a9; border-radius: .8rem; }
+.sheet-art img { display:block; width:100%; height:auto; max-height:68vh; object-fit:contain; }
+.reading { max-width:40rem; }
+.reading p { font:1.2rem/1.65 Georgia,serif; }
+.reading p + p { margin-top:1.35rem; }
+.question { padding: .7rem 1.2rem; border-left: .3rem solid #db9b36; background:#eee8cd; }
+.series-art { float:right; width:min(42%,25rem); height:auto; margin:0 0 1rem 1rem; border-radius:1rem; }
+.contents { clear:both; columns:2 16rem; padding-left:1.5rem; }
+.contents li { break-inside:avoid; margin:.25rem 1rem .5rem 0; }
+.contents a { display:inline-block; padding:.2rem 0; }
+@media(max-width:550px){ .series-art {float:none;width:100%;margin:0;} }
+@page {size:auto; margin:10mm;}
+@media print {
+ header,.skip,.actions,.question a,.series-art {display:none;}
+ body {background:white;color:black;}
+ main, .sheet-art {padding:0;margin:0;max-width:none;border:0;}
+ main:has(.sheet-art) > :not(.sheet-art) {display:none;}
+ .sheet-art img {width:100%;height:94vh;max-height:none;object-fit:contain;}
+}

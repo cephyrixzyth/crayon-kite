@@ -1,0 +1,182 @@
+[
+  {
+    "pdf": "01-hello-chirps.png.A4.pdf",
+    "expected": "01-hello-chirps.png",
+    "closest": "01-hello-chirps.png",
+    "meanError": 2.004,
+    "nextError": 34.019,
+    "minimumInkMarginPixels": 26,
+    "passed": true
+  },
+  {
+    "pdf": "01-hello-chirps.png.Letter.pdf",
+    "expected": "01-hello-chirps.png",
+    "closest": "01-hello-chirps.png",
+    "meanError": 3.86,
+    "nextError": 33.841,
+    "minimumInkMarginPixels": 27,
+    "passed": true
+  },
+  {
+    "pdf": "02-birdhouse-home.png.A4.pdf",
+    "expected": "02-birdhouse-home.png",
+    "closest": "02-birdhouse-home.png",
+    "meanError": 4.01,
+    "nextError": 36.344,
+    "minimumInkMarginPixels": 27,
+    "passed": true
+  },
+  {
+    "pdf": "02-birdhouse-home.png.Letter.pdf",
+    "expected": "02-birdhouse-home.png",
+    "closest": "02-birdhouse-home.png",
+    "meanError": 2.823,
+    "nextError": 36.255,
+    "minimumInkMarginPixels": 28,
+    "passed": true
+  },
+  {
+    "pdf": "03-flower-garden.png.A4.pdf",
+    "expected": "03-flower-garden.png",
+    "closest": "03-flower-garden.png",
+    "meanError": 2.531,
+    "nextError": 36.693,
+    "minimumInkMarginPixels": 19,
+    "passed": true
+  },
+  {
+    "pdf": "03-flower-garden.png.Letter.pdf",
+    "expected": "03-flower-garden.png",
+    "closest": "03-flower-garden.png",
+    "meanError": 2.261,
+    "nextError": 36.659,
+    "minimumInkMarginPixels": 21,
+    "passed": true
+  },
+  {
+    "pdf": "04-seed-snack.png.A4.pdf",
+    "expected": "04-seed-snack.png",
+    "closest": "04-seed-snack.png",
+    "meanError": 2.176,
+    "nextError": 35.85,
+    "minimumInkMarginPixels": 33,
+    "passed": true
+  },
+  {
+    "pdf": "04-seed-snack.png.Letter.pdf",
+    "expected": "04-seed-snack.png",
+    "closest": "04-seed-snack.png",
+    "meanError": 1.765,
+    "nextError": 35.935,
+    "minimumInkMarginPixels": 50,
+    "passed": true
+  },
+  {
+    "pdf": "05-swing-time.png.A4.pdf",
+    "expected": "05-swing-time.png",
+    "closest": "05-swing-time.png",
+    "meanError": 2.547,
+    "nextError": 40.809,
+    "minimumInkMarginPixels": 31,
+    "passed": true
+  },
+  {
+    "pdf": "05-swing-time.png.Letter.pdf",
+    "expected": "05-swing-time.png",
+    "closest": "05-swing-time.png",
+    "meanError": 2.747,
+    "nextError": 40.684,
+    "minimumInkMarginPixels": 32,
+    "passed": true
+  },
+  {
+    "pdf": "06-cloud-watchers.png.A4.pdf",
+    "expected": "06-cloud-watchers.png",
+    "closest": "06-cloud-watchers.png",
+    "meanError": 1.936,
+    "nextError": 31.496,
+    "minimumInkMarginPixels": 28,
+    "passed": true
+  },
+  {
+    "pdf": "06-cloud-watchers.png.Letter.pdf",
+    "expected": "06-cloud-watchers.png",
+    "closest": "06-cloud-watchers.png",
+    "meanError": 2.128,
+    "nextError": 31.518,
+    "minimumInkMarginPixels": 29,
+    "passed": true
+  },
+  {
+    "pdf": "07-pond-friend.png.A4.pdf",
+    "expected": "07-pond-friend.png",
+    "closest": "07-pond-friend.png",
+    "meanError": 2.257,
+    "nextError": 36.3,
+    "minimumInkMarginPixels": 31,
+    "passed": true
+  },
+  {
+    "pdf": "07-pond-friend.png.Letter.pdf",
+    "expected": "07-pond-friend.png",
+    "closest": "07-pond-friend.png",
+    "meanError": 2.104,
+    "nextError": 36.3,
+    "minimumInkMarginPixels": 34,
+    "passed": true
+  },
+  {
+    "pdf": "08-feather-trail.png.A4.pdf",
+    "expected": "08-feather-trail.png",
+    "closest": "08-feather-trail.png",
+    "meanError": 2.692,
+    "nextError": 35.854,
+    "minimumInkMarginPixels": 25,
+    "passed": true
+  },
+  {
+    "pdf": "08-feather-trail.png.Letter.pdf",
+    "expected": "08-feather-trail.png",
+    "closest": "08-feather-trail.png",
+    "meanError": 2.792,
+    "nextError": 35.838,
+    "minimumInkMarginPixels": 26,
+    "passed": true
+  },
+  {
+    "pdf": "09-garden-picnic.png.A4.pdf",
+    "expected": "09-garden-picnic.png",
+    "closest": "09-garden-picnic.png",
+    "meanError": 2.705,
+    "nextError": 40.034,
+    "minimumInkMarginPixels": 31,
+    "passed": true
+  },
+  {
+    "pdf": "09-garden-picnic.png.Letter.pdf",
+    "expected": "09-garden-picnic.png",
+    "closest": "09-garden-picnic.png",
+    "meanError": 2.336,
+    "nextError": 40.128,
+    "minimumInkMarginPixels": 48,
+    "passed": true
+  },
+  {
+    "pdf": "10-sky-song.png.A4.pdf",
+    "expected": "10-sky-song.png",
+    "closest": "10-sky-song.png",
+    "meanError": 2.427,
+    "nextError": 31.471,
+    "minimumInkMarginPixels": 31,
+    "passed": true
+  },
+  {
+    "pdf": "10-sky-song.png.Letter.pdf",
+    "expected": "10-sky-song.png",
+    "closest": "10-sky-song.png",
+    "meanError": 2.414,
+    "nextError": 31.45,
+    "minimumInkMarginPixels": 33,
+    "passed": true
+  }
+]\n

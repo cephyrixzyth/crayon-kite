@@ -67,7 +67,7 @@
     .hero-note span:first-child { color: var(--yellow); font-size: 1.1rem; }
     .art-stage { position: relative; padding: 18px; border-radius: 36px; background: #f9f4e9; box-shadow: var(--shadow); transform: rotate(1deg); }
     .art-stage img { width: 100%; height: auto; display: block; border-radius: 24px; mix-blend-mode: multiply; }
-    .art-tag { position: absolute; left: -24px; bottom: 24px; padding: 11px 16px; border: 3px solid var(--night); border-radius: 16px; background: var(--coral); color: var(--ink); font-size: .85rem; font-weight: 900; transform: rotate(-5deg); }
+
     .sun-doodle { position: absolute; top: -19px; right: 23px; display: grid; width: 63px; height: 63px; place-items: center; border-radius: 50%; background: var(--yellow); color: var(--ink); font-size: 2rem; }
     .song-player-band { padding: 18px 0; border-bottom: 1px solid var(--line); background: rgba(24, 61, 67, .55); }
     .song-player-inner { display: grid; grid-template-columns: minmax(190px, .42fr) minmax(0, 1fr); align-items: center; gap: 24px; }
@@ -103,7 +103,7 @@
     .color-picker { display: flex; gap: 12px; overflow-x: auto; padding: 5px 3px 14px; scroll-snap-type: x mandatory; scrollbar-color: var(--line) transparent; }
     .color-choice { flex: 0 0 142px; overflow: hidden; padding: 0; border: 2px solid var(--line); border-radius: 15px; background: var(--night-2); color: var(--cream); text-align: left; cursor: pointer; scroll-snap-align: start; }
     .color-choice[aria-pressed="true"] { border-color: var(--yellow); box-shadow: 0 0 0 2px rgba(255, 205, 92, .2); }
-    .color-choice img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #fffdf4; }
+    .color-choice img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: white; }
     .color-choice span { display: block; padding: 9px 10px; font-size: .84rem; font-weight: 850; }
     .color-choice:focus-visible, .print-button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
     .selected-page { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1fr); gap: clamp(22px, 4vw, 46px); align-items: center; margin-top: 17px; padding: clamp(18px, 3vw, 30px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--night-2); }
@@ -113,12 +113,20 @@
     .color-note { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
     .selected-art-frame { max-height: 620px; overflow: hidden; display: grid; place-items: center; padding: 10px; border-radius: 15px; background: #fffdf4; }
     .selected-art-frame img { display: block; width: auto; height: min(68vh, 590px); max-width: 100%; object-fit: contain; }
-    @page { size: letter portrait; margin: .3in; }
+    @page { size: auto; margin: 10mm; }
     @media print {
-      body { background: white !important; color: black !important; }
-      body * { visibility: hidden !important; }
-      #selected-art { visibility: visible !important; position: fixed; inset: 0; width: 100%; height: 10.4in; max-width: 100%; object-fit: contain; }
-      .selected-art-frame { display: block; position: static; max-height: none; overflow: visible; padding: 0; background: white; }
+      body { margin: 0; background: white; }
+      body > :not(main),
+      main > :not(#color),
+      #color .shell > :not(.selected-page),
+      .selected-page > :not(.selected-art-frame) { display: none !important; }
+      #color, #color .shell, #color .selected-page, #color .selected-art-frame {
+        display: block; width: 100%; max-width: none; max-height: none;
+        margin: 0; padding: 0; border: 0; border-radius: 0; overflow: visible; background: white;
+      }
+      #selected-art {
+        display: block; width: 100%; height: 94vh; max-width: 100%; object-fit: contain;
+      }
     }
     .cast { display: grid; grid-template-columns: 1.1fr repeat(4, 1fr); align-items: stretch; gap: 13px; }
     .cast-intro { display: flex; flex-direction: column; justify-content: center; padding-right: 12px; }
@@ -143,11 +151,9 @@
     .footer p { margin: 0; font-size: .87rem; }
     .footer a { color: var(--cream); font-weight: 800; }
     .tiny-bird { color: var(--yellow); }
-    .print-only { display: none; }
     @media (max-width: 860px) {
       .hero-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
       .shelf { grid-template-columns: repeat(2, 1fr); }
-      .story-card:last-child { display: none; }
       .cast { grid-template-columns: repeat(4, 1fr); }
       .cast-intro { grid-column: 1 / -1; }
     }
@@ -167,13 +173,13 @@
       .hero-copy { font-size: 1.05rem; }
       .art-stage { width: calc(100% - 12px); margin-inline: auto; padding: 10px; border-radius: 24px; }
       .art-stage img { border-radius: 17px; }
-      .art-tag { left: -8px; bottom: 10px; }
+
       .sun-doodle { width: 50px; height: 50px; font-size: 1.55rem; }
       .section { padding: 57px 0; }
       .section-head { align-items: start; flex-direction: column; gap: 10px; }
       .shelf { grid-template-columns: 1fr; }
       .story-card { min-height: 300px; }
-      .story-card:last-child { display: flex; }
+
       .color-choice { flex-basis: 122px; }
       .selected-page { grid-template-columns: 1fr; }
       .selected-art-frame img { height: min(75vh, 560px); }
@@ -188,6 +194,25 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
+<style id="chirps-model-cards">
+.character .model-portrait{display:block;width:min(100%,8rem);aspect-ratio:2/3;overflow:hidden;border-radius:15px;background:#f9eed7}
+.model-portrait img{height:100%;width:auto;max-width:none;display:block}
+.character details{margin-top:.65rem}.character summary,.character .open-art{color:inherit;text-underline-offset:.2em}
+.character summary{cursor:pointer;font-size:.9rem;min-height:2.75rem;display:list-item;padding:.5rem 0}
+.character .model-sequence{width:100%;height:auto;display:block;margin:.35rem 0;border-radius:.4rem}
+.character .open-art{display:inline-block;padding:.4rem 0}
+.art-stage img[src$="cast.webp"],.art-card img[src$="cast.webp"]{mix-blend-mode:normal}
+</style>
+<noscript><style>@media(max-width:640px){.nav{flex-wrap:wrap;padding:.75rem 0}.nav .menu-toggle{display:none}.nav .links{position:static;display:flex;flex-direction:row;flex-wrap:wrap;padding:0;gap:.25rem .9rem}.nav .links a{padding:.35rem 0}}</style></noscript>
+<style>[hidden]{display:none!important}.color-choice{text-decoration:none}.sheet-pending #selected-art{visibility:hidden}.print-button:disabled{opacity:.6;cursor:wait}
+@media print {
+  body.sheet-pending #color::before {
+    content: "This drawing is still loading or unavailable. Return to the coloring page and wait for it to be ready before printing.";
+    display: block; font: 14pt sans-serif; color: black;
+  }
+  body.sheet-pending .selected-page { display: none !important; }
+}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to the adventure</a>
@@ -207,15 +232,6 @@
   </header>
 
   <main id="main">
-    <section class="song-player-band" aria-labelledby="theme-song-title">
-      <div class="shell song-player-inner">
-        <div class="song-player-copy">
-          <p class="eyebrow"><span aria-hidden="true">♫</span> The Budgie Adventures theme</p>
-          <p id="theme-song-title">Budgie Adventure Club, Let's Go!</p>
-        </div>
-        <iframe class="udio-player" src="https://www.udio.com/embed/j78w4VqNS9Pgdpy8A7Z9fX" title="Udio player: Budgie Adventure Club, Let's Go!" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-    </section>
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div>
@@ -230,8 +246,8 @@
         </div>
         <div class="art-stage">
           <span class="sun-doodle" aria-hidden="true">✦</span>
-          <img src="../assets/chirps-family.jpg" alt="Daisy, Chip, Caty, and little Bella, a family of budgies ready for an adventure." width="1774" height="1013">
-          <span class="art-tag">Meet your new bird buddies!</span>
+          <img src="../assets/chirps-studio/cast.webp" alt="Chip, Daisy, Caty and Bella, four budgies with a zigzag, three chest drops, a cheek heart and a star." width="1200" height="600">
+
         </div>
       </div>
     </section>
@@ -246,17 +262,17 @@
           <article class="story-card featured">
             <div class="story-top"><span class="pill">A peek at the first tale</span><span class="number">STORY 01</span></div>
             <div class="cover" aria-hidden="true">🌳 ✨ 🐦</div>
-            <div><h3>The Magical Forest &amp; the Feather Map</h3><p>A curious picture, a glowing forest, and a tiny bird who needs help finding home.</p><details class="story-sample"><summary>Read a story starter <span aria-hidden="true">✦</span></summary><div class="sample-copy"><p>In a quiet garden stood an old bird-house with a crooked roof. Daisy lived there with Chip and Caty. Every morning, they watched the sun climb over the fence.</p><p>One rainy day, Chip found a picture tucked beneath their nest. It showed trees with glowing leaves.</p><p>“The Magical Forest,” Daisy read. “My grandmother told me it lies beyond the hills.”</p></div></details></div>
+            <div><h3>The Magical Forest &amp; the Feather Map</h3><p>A curious picture, a glowing forest, and a tiny bird who needs help finding home.</p><details class="story-sample"><summary>Read a story starter <span aria-hidden="true">✦</span></summary><div class="sample-copy"><p>In a quiet garden stood an old bird-house with a crooked roof. Daisy lived there with Chip and Caty. Every morning, they watched the sun climb over the fence.</p><p>One rainy day, Chip found a picture tucked beneath their nest. It showed trees with glowing leaves.</p><p>“The Magical Forest,” Daisy read. “My grandmother told me it lies beyond the hills.”</p><p><a class="small-link" href="color/birdhouse-home/index.html">Color the Chirps’ birdhouse</a></p></div></details></div>
           </article>
           <article class="story-card next">
             <div class="story-top"><span class="pill">A new trail</span><span class="number">NEXT UP</span></div>
             <div class="cover" aria-hidden="true">🌊 💧 🪶</div>
-            <div><h3>The Whispering River</h3><p>Caty follows the stream's quiet clues to help a duckling find a calm way home.</p><span class="small-link">A story on the map <span aria-hidden="true">✦</span></span></div>
+            <div><h3>The Whispering River</h3><p>Caty follows the stream's quiet clues to help a duckling find a calm way home.</p><span class="small-link">In development</span></div>
           </article>
-          <article class="story-card song">
+          <article class="story-card song" id="sky-song">
             <div class="story-top"><span class="pill">The big picture</span><span class="number">10 TALES</span></div>
             <div class="cover" aria-hidden="true"><span class="moon">🌙</span> 🎵</div>
-            <div><h3>Follow the Sky Song</h3><p>Ten little clues connect the Chirps' journeys into one welcoming tune.</p><span class="small-link">See where the map leads <span aria-hidden="true">✦</span></span></div>
+            <div><h3>Follow the Sky Song</h3><p>Ten little clues connect the Chirps' journeys into one welcoming tune.</p><a class="small-link" href="color/sky-song/index.html">Color the Sky Song</a> <a class="small-link" href="https://www.udio.com/embed/j78w4VqNS9Pgdpy8A7Z9fX">Listen on Udio</a></div>
           </article>
         </div>
       </div>
@@ -269,38 +285,45 @@
           <h2 id="color-title">Ten free pages to color.</h2>
           <p>Meet Daisy, Chip, Caty, and Bella in some very simple pictures. These little printables are made for a quick coloring break; the books have more detailed story pictures. Pick a page, then ask a grown-up to help print it.</p>
         </div>
+        <p><a class="small-link" href="nature-cards/index.html">Make a nature card</a></p>
         <div class="color-picker" role="group" aria-label="Choose a free coloring page">
-          <button class="color-choice" type="button" aria-pressed="true" data-file="01-hello-chirps.png" data-title="Hello, Chirps!" data-description="The whole budgie family says hello." data-alt="Simple outline of the four Chirps budgies on a branch."><img src="../assets/free-coloring/01-hello-chirps.png" alt="" loading="lazy"><span>01 · Hello, Chirps!</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="02-birdhouse-home.png" data-title="Birdhouse Home" data-description="A little house for the feathered friends." data-alt="Simple outline of the Chirps beside their little birdhouse."><img src="../assets/free-coloring/02-birdhouse-home.png" alt="" loading="lazy"><span>02 · Birdhouse Home</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="03-flower-garden.png" data-title="Flower Garden" data-description="Big flowers and little bird friends." data-alt="Simple outline of four budgies among three large flowers."><img src="../assets/free-coloring/03-flower-garden.png" alt="" loading="lazy"><span>03 · Flower Garden</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="04-seed-snack.png" data-title="Seed Snack" data-description="The family gathers for a tiny snack." data-alt="Simple outline of the Chirps sharing a bowl of seeds."><img src="../assets/free-coloring/04-seed-snack.png" alt="" loading="lazy"><span>04 · Seed Snack</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="05-swing-time.png" data-title="Swing Time" data-description="Take turns on the garden swing." data-alt="Simple outline of budgies sitting on a swing beneath a branch."><img src="../assets/free-coloring/05-swing-time.png" alt="" loading="lazy"><span>05 · Swing Time</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="06-cloud-watchers.png" data-title="Cloud Watchers" data-description="What shapes can you spot in the sky?" data-alt="Simple outline of four budgies looking up at clouds and a sun."><img src="../assets/free-coloring/06-cloud-watchers.png" alt="" loading="lazy"><span>06 · Cloud Watchers</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="07-pond-friend.png" data-title="Pond Friend" data-description="A duckling stops by to say hello." data-alt="Simple outline of the budgie family waving to a duckling by a pond."><img src="../assets/free-coloring/07-pond-friend.png" alt="" loading="lazy"><span>07 · Pond Friend</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="08-feather-trail.png" data-title="Feather Trail" data-description="Follow the feathers across the page." data-alt="Simple outline of four budgies following a trail of feathers."><img src="../assets/free-coloring/08-feather-trail.png" alt="" loading="lazy"><span>08 · Feather Trail</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="09-garden-picnic.png" data-title="Garden Picnic" data-description="A blanket, a few treats, and the Chirps." data-alt="Simple outline of the Chirps having a small garden picnic."><img src="../assets/free-coloring/09-garden-picnic.png" alt="" loading="lazy"><span>09 · Garden Picnic</span></button>
-          <button class="color-choice" type="button" aria-pressed="false" data-file="10-sky-song.png" data-title="Sky Song" data-description="Sing a tune with the birds." data-alt="Simple outline of four budgies with a sun, clouds, and music notes."><img src="../assets/free-coloring/10-sky-song.png" alt="" loading="lazy"><span>10 · Sky Song</span></button>
+          <a class="color-choice" href="color/hello-chirps/index.html" data-id="hello-chirps" data-file="01-hello-chirps.png" data-title="Hello, Chirps!" data-description="The whole budgie family says hello." data-alt="Simple outline of the four Chirps budgies on a branch."><img src="../assets/sheet-previews/hello-chirps.webp" alt="" width="171" height="256" loading="lazy"><span>01 · Hello, Chirps!</span></a>
+          <a class="color-choice" href="color/birdhouse-home/index.html" data-id="birdhouse-home" data-file="02-birdhouse-home.png" data-title="Birdhouse Home" data-description="A little house for the feathered friends." data-alt="Simple outline of the Chirps beside their little birdhouse."><img src="../assets/sheet-previews/birdhouse-home.webp" alt="" width="171" height="256" loading="lazy"><span>02 · Birdhouse Home</span></a>
+          <a class="color-choice" href="color/flower-garden/index.html" data-id="flower-garden" data-file="03-flower-garden.png" data-title="Flower Garden" data-description="Big flowers and little bird friends." data-alt="Simple outline of four budgies among three large flowers."><img src="../assets/sheet-previews/flower-garden.webp" alt="" width="256" height="171" loading="lazy"><span>03 · Flower Garden</span></a>
+          <a class="color-choice" href="color/seed-snack/index.html" data-id="seed-snack" data-file="04-seed-snack.png" data-title="Seed Snack" data-description="The family gathers for a tiny snack." data-alt="Simple outline of the Chirps sharing a bowl of seeds."><img src="../assets/sheet-previews/seed-snack.webp" alt="" width="171" height="256" loading="lazy"><span>04 · Seed Snack</span></a>
+          <a class="color-choice" href="color/swing-time/index.html" data-id="swing-time" data-file="05-swing-time.png" data-title="Swing Time" data-description="Take turns on the garden swing." data-alt="Simple outline of budgies sitting on a swing beneath a branch."><img src="../assets/sheet-previews/swing-time.webp" alt="" width="171" height="256" loading="lazy"><span>05 · Swing Time</span></a>
+          <a class="color-choice" href="color/cloud-watchers/index.html" data-id="cloud-watchers" data-file="06-cloud-watchers.png" data-title="Cloud Watchers" data-description="What shapes can you spot in the sky?" data-alt="Simple outline of four budgies looking up at clouds and a sun."><img src="../assets/sheet-previews/cloud-watchers.webp" alt="" width="171" height="256" loading="lazy"><span>06 · Cloud Watchers</span></a>
+          <a class="color-choice" href="color/pond-friend/index.html" data-id="pond-friend" data-file="07-pond-friend.png" data-title="Pond Friend" data-description="A duckling stops by to say hello." data-alt="Simple outline of the budgie family waving to a duckling by a pond."><img src="../assets/sheet-previews/pond-friend.webp" alt="" width="171" height="256" loading="lazy"><span>07 · Pond Friend</span></a>
+          <a class="color-choice" href="color/feather-trail/index.html" data-id="feather-trail" data-file="08-feather-trail.png" data-title="Feather Trail" data-description="Follow the feathers across the page." data-alt="Simple outline of four budgies following a trail of feathers."><img src="../assets/sheet-previews/feather-trail.webp" alt="" width="171" height="256" loading="lazy"><span>08 · Feather Trail</span></a>
+          <a class="color-choice" href="color/garden-picnic/index.html" data-id="garden-picnic" data-file="09-garden-picnic.png" data-title="Garden Picnic" data-description="A blanket, a few treats, and the Chirps." data-alt="Simple outline of the Chirps having a small garden picnic."><img src="../assets/sheet-previews/garden-picnic.webp" alt="" width="171" height="256" loading="lazy"><span>09 · Garden Picnic</span></a>
+          <a class="color-choice" href="color/sky-song/index.html" data-id="sky-song" data-file="10-sky-song.png" data-title="Sky Song" data-description="Sing a tune with the birds." data-alt="Simple outline of four budgies with a sun, clouds, and music notes."><img src="../assets/sheet-previews/sky-song.webp" alt="" width="171" height="256" loading="lazy"><span>10 · Sky Song</span></a>
         </div>
         <div class="selected-page">
           <div class="selected-copy">
             <p class="eyebrow"><span aria-hidden="true">✦</span> Your coloring page</p>
             <h3 id="selected-title">Hello, Chirps!</h3>
             <p id="selected-description">The whole budgie family says hello.</p>
-            <button class="print-button" id="print-button" type="button">Print this page <span aria-hidden="true">✎</span></button>
-            <p class="color-note">Ask a grown-up to help print. Choose “fit to page” for the best result.</p>
+            <button class="print-button" id="print-button" type="button" hidden disabled>Print this page <span aria-hidden="true">✎</span></button>
+            <p><a id="download-sheet" class="small-link" href="../assets/free-coloring/01-hello-chirps.png" download="01-hello-chirps.png">Download original drawing</a></p>
+            <p id="sheet-status" role="status"></p>
+            <p class="color-note">Choose Letter or A4 paper and fit to page.</p>
+            <p><a class="small-link" href="story-starter/index.html">Back to the story starter</a></p>
           </div>
           <div class="selected-art-frame"><img id="selected-art" src="../assets/free-coloring/01-hello-chirps.png" alt="Simple outline of the four Chirps budgies on a branch."></div>
         </div>
       </div>
     </section>
 
+    <section class="section" aria-labelledby="welcome-tree-title"><div class="shell">
+      <h2 id="welcome-tree-title">The Chirps and the Welcome Tree</h2><p>Join Daisy, Chip, Caty and Bella as they get the garden ready for Everybody Day.</p>
+      <a class="button" href="welcome-tree/index.html">Choose a read-aloud story</a></div></section>
     <section class="section" id="friends" aria-labelledby="friends-title">
       <div class="shell cast">
         <div class="cast-intro"><p class="eyebrow"><span aria-hidden="true">♡</span> Your adventure team</p><h2 id="friends-title">Meet the Chirps!</h2><p>Good adventures are better when every friend has a part to play.</p></div>
-        <article class="character"><span class="bird-token" aria-hidden="true">🐦</span><div><h3>Daisy</h3><p>The caring, clever grown-up.</p></div></article>
-        <article class="character"><span class="bird-token" aria-hidden="true">🐤</span><div><h3>Chip</h3><p>The curious clue-finder.</p></div></article>
-        <article class="character"><span class="bird-token" aria-hidden="true">🐥</span><div><h3>Caty</h3><p>The careful listener.</p></div></article>
-        <article class="character"><span class="bird-token" aria-hidden="true">✦</span><div><h3>Bella</h3><p>The tiny new friend.</p></div></article>
+        <article class="character" id="friend-daisy"><span class="model-portrait" aria-hidden="true"><img src="../assets/chirps-studio/daisy.webp" width="1200" height="600" alt="" loading="lazy"></span><div><h3>Daisy</h3><p>The caring, clever grown-up.</p><details><summary>Watch Daisy move</summary><img class="model-sequence" src="../assets/chirps-studio/daisy.webp" width="1200" height="600" alt="Daisy stands tall, lowers her body to listen, then extends a sage-green wing." loading="lazy"><p>How does Daisy make room for a smaller friend?</p><a class="open-art" href="../assets/chirps-studio/daisy.webp">Open the full drawing</a></details></div></article>
+        <article class="character" id="friend-chip"><span class="model-portrait" aria-hidden="true"><img src="../assets/chirps-studio/chip.webp" width="1200" height="600" alt="" loading="lazy"></span><div><h3>Chip</h3><p>The curious clue-finder.</p><details><summary>Watch Chip move</summary><img class="model-sequence" src="../assets/chirps-studio/chip.webp" width="1200" height="600" alt="Chip stands alert, leans over a seed, then looks back with a foot raised." loading="lazy"><p>Which pose tells you Chip has found something?</p><a class="open-art" href="../assets/chirps-studio/chip.webp">Open the full drawing</a></details></div></article>
+        <article class="character" id="friend-caty"><span class="model-portrait" aria-hidden="true"><img src="../assets/chirps-studio/caty.webp" width="1200" height="600" alt="" loading="lazy"></span><div><h3>Caty</h3><p>The careful listener.</p><details><summary>Watch Caty move</summary><img class="model-sequence" src="../assets/chirps-studio/caty.webp" width="1200" height="600" alt="Caty looks up, turns toward a ripple, then points with a periwinkle wing." loading="lazy"><p>Where is Caty looking when she hears the ripple?</p><a class="open-art" href="../assets/chirps-studio/caty.webp">Open the full drawing</a></details></div></article>
+        <article class="character" id="friend-bella"><span class="model-portrait" aria-hidden="true"><img src="../assets/chirps-studio/bella.webp" width="1200" height="600" alt="" loading="lazy"></span><div><h3>Bella</h3><p>The tiny new friend.</p><details><summary>Watch Bella move</summary><img class="model-sequence" src="../assets/chirps-studio/bella.webp" width="1200" height="600" alt="A tiny apricot budgie crouches, hops over a leaf and lands on both feet." loading="lazy"><p>What changes between Bella getting ready and landing?</p><a class="open-art" href="../assets/chirps-studio/bella.webp">Open the full drawing</a></details></div></article>
       </div>
     </section>
 
@@ -311,42 +334,15 @@
           <ul class="safety-list">
             <li><span class="check" aria-hidden="true">✓</span><span>No child accounts, profiles, or personal-data forms.</span></li>
             <li><span class="check" aria-hidden="true">✓</span><span>No comments, direct messages, or user uploads.</span></li>
-            <li><span class="check" aria-hidden="true">✓</span><span>Printable activity works right from this page.</span></li>
-            <li><span class="check" aria-hidden="true">✓</span><span>Books are gentle read-aloud adventures for ages 4–8.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span><a href="nature-cards/index.html">Make a nature card</a> for a window or garden.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Ages 4–8. Site visits use Cloudflare Web Analytics. The optional song opens on Udio.</span></li>
           </ul>
         </div>
       </div>
     </section>
   </main>
   <footer class="footer"><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✳</span><span>Budgie Adventures</span></a><p>Little wings. Kind hearts. <span class="tiny-bird" aria-hidden="true">♥</span></p><p>For children to explore with a grown-up nearby.</p></div></footer>
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('#site-links');
-    menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
-      menu.classList.toggle('open', !isOpen);
-    });
-    menu.addEventListener('click', (event) => {
-      if (event.target.closest('a')) {
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open menu');
-        menu.classList.remove('open');
-      }
-    });
-    const pageChoices = [...document.querySelectorAll('.color-choice')];
-    const selectedArt = document.querySelector('#selected-art');
-    pageChoices.forEach((choice) => {
-      choice.addEventListener('click', () => {
-        pageChoices.forEach((item) => item.setAttribute('aria-pressed', String(item === choice)));
-        selectedArt.src = `../assets/free-coloring/${choice.dataset.file}`;
-        selectedArt.alt = choice.dataset.alt;
-        document.querySelector('#selected-title').textContent = choice.dataset.title;
-        document.querySelector('#selected-description').textContent = choice.dataset.description;
-      });
-    });
-    document.querySelector('#print-button').addEventListener('click', () => window.print());
-  </script>
+  <script src="../assets/navigation.js" defer></script>
+  <script src="../assets/color-picker.js" defer></script>
 </body>
 </html>

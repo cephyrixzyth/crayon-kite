@@ -1,0 +1,23 @@
+{
+  "browser": "157.0.8103.79",
+  "homeStoryBirdhouseAndReturn": true,
+  "selectionHistorySlowAndFailedImages": true,
+  "mobileNetwork": {
+    "selectedBeforeInteraction": [
+      "01-hello-chirps.png"
+    ],
+    "initialRequests": 13,
+    "initialResourceTransferBytes": 1619454,
+    "initialPreviewRequests": 8,
+    "skySongTransferBytes": 1501383,
+    "totalTenThumbnailAssetBytes": 95548,
+    "totalTenMasterAssetBytes": 15965033
+  },
+  "staticSheetPdfExports": 20,
+  "readers": {
+    "stories": 20,
+    "alternate": 1,
+    "passages": 168
+  },
+  "pageErrors": []
+}\n

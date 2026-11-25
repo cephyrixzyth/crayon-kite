@@ -1,0 +1,416 @@
+{
+  "site": "crayonkite.com",
+  "revision": "dd6007ce69a1682e93ba968c87c7a4bbd13e3014",
+  "checkoutHasChanges": true,
+  "node": "v24.22.1",
+  "platform": "darwin",
+  "playwright": "1.62.1",
+  "browser": "157.0.8103.79",
+  "checks": [
+    {
+      "id": "K01",
+      "status": "PASS",
+      "observed": [
+        {
+          "sheet": "01-hello-chirps.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "01-hello-chirps.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "02-birdhouse-home.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "02-birdhouse-home.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "03-flower-garden.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "03-flower-garden.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "04-seed-snack.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "04-seed-snack.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "05-swing-time.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "05-swing-time.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "06-cloud-watchers.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "06-cloud-watchers.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "07-pond-friend.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "07-pond-friend.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "08-feather-trail.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "08-feather-trail.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "09-garden-picnic.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "09-garden-picnic.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "10-sky-song.png",
+          "paper": "Letter",
+          "pages": 1,
+          "points": [
+            612,
+            792
+          ],
+          "correctPaper": true
+        },
+        {
+          "sheet": "10-sky-song.png",
+          "paper": "A4",
+          "pages": 1,
+          "points": [
+            595.91998,
+            842.88
+          ],
+          "correctPaper": true
+        }
+      ]
+    },
+    {
+      "id": "K02",
+      "status": "PASS",
+      "observed": [
+        {
+          "route": "/",
+          "width": 320,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 620,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 621,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 640,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 641,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 768,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 850,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 851,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 860,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 861,
+          "visible": 3
+        },
+        {
+          "route": "/",
+          "width": 1440,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 320,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 620,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 621,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 640,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 641,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 768,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 850,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 851,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 860,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 861,
+          "visible": 3
+        },
+        {
+          "route": "/budgie-adventures/",
+          "width": 1440,
+          "visible": 3
+        }
+      ]
+    },
+    {
+      "id": "K03",
+      "status": "PASS",
+      "observed": {
+        "location": "/budgie-adventures/color/birdhouse-home/index.html",
+        "title": "Birdhouse Home",
+        "src": "../../../assets/free-coloring/02-birdhouse-home.png",
+        "afterReload": "Birdhouse Home"
+      }
+    },
+    {
+      "id": "K04",
+      "status": "PASS",
+      "observed": {
+        "thumbsUsingMaster": []
+      }
+    },
+    {
+      "id": "K05",
+      "status": "PASS",
+      "observed": [
+        {
+          "file": "01-hello-chirps.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "02-birdhouse-home.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "03-flower-garden.png",
+          "width": 1536,
+          "height": 1024,
+          "match": true
+        },
+        {
+          "file": "04-seed-snack.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "05-swing-time.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "06-cloud-watchers.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "07-pond-friend.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "08-feather-trail.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "09-garden-picnic.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        },
+        {
+          "file": "10-sky-song.png",
+          "width": 1024,
+          "height": 1536,
+          "match": true
+        }
+      ]
+    }
+  ]
+}\n

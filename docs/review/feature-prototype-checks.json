@@ -1,0 +1,76 @@
+{
+  "site": "kite",
+  "browser": "157.0.8103.79",
+  "cases": [
+    {
+      "title": "Look for shapes · At a window",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-window-look.txt"
+    },
+    {
+      "title": "Listen for rhythm · At a window",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-window-listen.txt"
+    },
+    {
+      "title": "Imagine a story · At a window",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-window-imagine.txt"
+    },
+    {
+      "title": "Look for shapes · In the garden",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-garden-look.txt"
+    },
+    {
+      "title": "Listen for rhythm · In the garden",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-garden-listen.txt"
+    },
+    {
+      "title": "Imagine a story · In the garden",
+      "paper": {
+        "Letter": 1,
+        "A4": 1
+      },
+      "download": "kite-garden-imagine.txt"
+    }
+  ],
+  "viewports": [
+    [
+      320,
+      568
+    ],
+    [
+      390,
+      600
+    ],
+    [
+      740,
+      360
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "invalidValueFallback": true,
+  "scriptFreeExample": true,
+  "remoteRequests": [],
+  "pageErrors": []
+}\n
